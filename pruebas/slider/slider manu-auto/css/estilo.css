@@ -1,0 +1,22 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.main{
+	width:90%;
+	max-width:1000px;
+	margin:20px auto;
+}
+.main {
+width:90%;
+max-width:1000px;
+margin:20px auto;
+}
+ 
+.slides {
+width:100%;
+}
+ 
+.slides img {
+width:100%;
+}
