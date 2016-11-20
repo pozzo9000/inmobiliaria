@@ -27,10 +27,10 @@
       },
       effect: {
         slide: {
-          speed: 500
+          speed: 1000
         },
         fade: {
-          speed: 300,
+          speed: 1000,
           crossfade: true
         }
       },
@@ -64,7 +64,7 @@
       $.data(this, "vendorPrefix", this._getVendorPrefix());
       if (typeof TouchEvent !== "undefined") {
         $.data(this, "touch", true);
-        this.options.effect.slide.speed = this.options.effect.slide.speed / 2;
+        this.options.effect.slide.speed = this.options.effect.slide.speed;
       }
       $element.css({
         overflow: "hidden"
@@ -114,19 +114,20 @@
         });
       });
       if (this.options.navigation.active) {
-        prevButton = $("<a>", {
-          "class": "slidesjs-previous slidesjs-navigation",
+               nextButton = $("<a>", {
+          "class": "slidesjs-next slidesjs-navigation ion-android-arrow-dropright-circle",
           href: "#",
-          title: "Previous",
-          text: "Previous"
-        }).appendTo($element);
-        nextButton = $("<a>", {
-          "class": "slidesjs-next slidesjs-navigation",
-          href: "#",
-          title: "Next",
-          text: "Next"
+          title: "",
+          text: ""
         }).appendTo($element);
       }
+      prevButton = $("<a>", {
+          "class": "slidesjs-previous slidesjs-navigation ion-android-arrow-dropleft-circle",
+          href: "#",
+          title: "",
+          text: ""
+        }).appendTo($element);
+ 
       $(".slidesjs-next", $element).click(function(e) {
         e.preventDefault();
         _this.stop(true);
@@ -334,7 +335,7 @@
         duration = prefix + "TransitionDuration";
         timing = prefix + "TransitionTimingFunction";
         slidesControl[0].style[transform] = "translateX(0px)";
-        slidesControl[0].style[duration] = this.options.effect.slide.speed * 0.85 + "ms";
+        slidesControl[0].style[duration] = this.options.effect.slide.speed * 85 + "ms";
       }
       slidesControl.on("transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd", function() {
         prefix = _this.data.vendorPrefix;

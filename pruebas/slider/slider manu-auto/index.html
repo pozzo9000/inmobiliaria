@@ -2,18 +2,50 @@
 <html>
 <head>
 	<title>Slider manu-atico</title>
-	<link rel="stylesheet" type="text/css" href="css/estilo.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
 </head>
 <body>
-	<div class="main">
-		<div class="sliders">
-			<img src="images/img-1.jpg">
-			<img src="images/img-2.jpg">
-			<img src="images/img-3.jpg">
-			<img src="images/img-4.jpg">
-			<img src="images/img-5.jpg">
+	<div>
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+		<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<div class="elementoslider">
+			<div class="main">
+				<div class="sliders">
+					<img src="images/img-1.jpg">
+					<img src="images/img-2.jpg">
+					<img src="images/img-3.jpg">
+					<img src="images/img-4.jpg">
+					<img src="images/img-5.jpg">
+				</div>
+			</div>
 		</div>
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.slides.js"></script>
+		<script type="text/javascript" src="js/funcionalidad.js"></script>
+		<script type="text/javascript">
+			$(function(){
+  				$(".sliders").slidesjs({
+    				play: {
+     				 active: true,
+        				// [boolean] Generate the play and stop buttons.
+        				// You cannot use your own buttons. Sorry.
+      					effect: "slide",
+        				// [string] Can be either "slide" or "fade".
+     				 interval: 5000,
+        				// [number] Time spent on each slide in milliseconds.
+      				auto: true,
+        				// [boolean] Start playing the slideshow on load.
+      				swap: true,
+        				// [boolean] show/hide stop and play buttons
+     				pauseOnHover: false,
+        				// [boolean] pause a playing slideshow on hover
+      				restartDelay: 2500
+        				// [number] restart delay on inactive slideshow
+    }
+  });
+});
+		</script>
+
 	</div>
 </body>
 </html>
