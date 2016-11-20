@@ -17,17 +17,17 @@
         effect: "slide"
       },
       play: {
-        active: false,
+        active: true,
         effect: "slide",
         interval: 5000,
-        auto: false,
+        auto: true,
         swap: true,
         pauseOnHover: false,
         restartDelay: 2500
       },
       effect: {
         slide: {
-          speed: 1000
+          speed: 500
         },
         fade: {
           speed: 1000,
@@ -116,29 +116,12 @@
       if (this.options.navigation.active) {
                nextButton = $("<a>", {
           "class": "slidesjs-next slidesjs-navigation ion-android-arrow-dropright-circle",
+          "id":"siguiente",
           href: "#",
           title: "",
           text: ""
         }).appendTo($element);
-      }
-      prevButton = $("<a>", {
-          "class": "slidesjs-previous slidesjs-navigation ion-android-arrow-dropleft-circle",
-          href: "#",
-          title: "",
-          text: ""
-        }).appendTo($element);
- 
-      $(".slidesjs-next", $element).click(function(e) {
-        e.preventDefault();
-        _this.stop(true);
-        return _this.next(_this.options.navigation.effect);
-      });
-      $(".slidesjs-previous", $element).click(function(e) {
-        e.preventDefault();
-        _this.stop(true);
-        return _this.previous(_this.options.navigation.effect);
-      });
-      if (this.options.play.active) {
+               if (this.options.play.active) {
         playButton = $("<a>", {
           "class": "slidesjs-play slidesjs-navigation",
           href: "#",
@@ -165,27 +148,24 @@
           });
         }
       }
-      if (this.options.pagination.active) {
-        pagination = $("<ul>", {
-          "class": "slidesjs-pagination"
+      }prevButton = $("<a>", {
+          "class": "slidesjs-previous slidesjs-navigation ion-android-arrow-dropleft-circle",
+          href: "#",
+          title: "",
+          text: ""
         }).appendTo($element);
-        $.each(new Array(this.data.total), function(i) {
-          var paginationItem, paginationLink;
-          paginationItem = $("<li>", {
-            "class": "slidesjs-pagination-item"
-          }).appendTo(pagination);
-          paginationLink = $("<a>", {
-            href: "#",
-            "data-slidesjs-item": i,
-            html: i + 1
-          }).appendTo(paginationItem);
-          return paginationLink.click(function(e) {
-            e.preventDefault();
-            _this.stop(true);
-            return _this.goto(($(e.currentTarget).attr("data-slidesjs-item") * 1) + 1);
-          });
-        });
-      }
+ 
+      $(".slidesjs-next", $element).click(function(e) {
+        e.preventDefault();
+        _this.stop(true);
+        return _this.next(_this.options.navigation.effect);
+      });
+      $(".slidesjs-previous", $element).click(function(e) {
+        e.preventDefault();
+        _this.stop(true);
+        return _this.previous(_this.options.navigation.effect);
+      });
+      
       $(window).bind("resize", function() {
         return _this.update();
       });
