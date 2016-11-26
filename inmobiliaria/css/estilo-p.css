@@ -16,7 +16,7 @@ body {
 	position: relative;
 	overflow: hidden;
 }
-.slider{
+.slider-p{
 	display: -o-flex;
 	display: -ms-flex;
 	display: -moz-flex;
