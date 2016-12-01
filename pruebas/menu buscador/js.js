@@ -3,10 +3,11 @@ function ambientes(){
 				var aptitud = $("#aptos").val();
 				var ambientes = $("#ambients").val();
 				var tipo = $("#tipo").val();
-				if (ambientes==ambientes && aptitud==aptitud && tipo==tipo){
+				if (ambientes==ambientes && aptitud==aptitud){
 					$(".propiedad").hide();
 					$("."+ambientes+"."+aptitud+"."+tipo).fadeIn();
 					console.log(ambientes);
+					console.log(tipo);
 }})
 };
 
