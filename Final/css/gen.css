@@ -26,13 +26,14 @@ div.imagen{
 	display: table;
 	align-items: center;
 }
-img{
+div.imagen img{
 	width: 50%;
-	margin:15px;
+	margin-top:15px;
 	box-shadow: 3px 2px 15px 5px #000;
 }
 div.linea{
 	border-top: 3px solid black;
 	width: 95%;
 	margin: auto;
+	margin-top: 15px;
 }
