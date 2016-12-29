@@ -1,0 +1,9 @@
+body{
+	background-color: #f00;
+}
+section#contenido{
+	background-color: white;
+	height: 60%;
+	width: 90%;
+	margin: auto;
+}
