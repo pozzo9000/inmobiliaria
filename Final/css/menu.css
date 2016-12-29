@@ -1,0 +1,21 @@
+#menu{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    display: table;
+    margin: auto;
+}
+#menu ul {
+    list-style: none;
+    display: table;
+    margin-top: 0;
+    padding: 0;
+    padding: 0;
+    width: 100%;
+}
+#menu ul li{
+    float:  left;
+    text-align: center;
+    padding: 15px;
+    background-color: cadetblue;
+    border: 3px solid blue;
+}
