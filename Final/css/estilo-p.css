@@ -1,10 +1,11 @@
 .c-slider-p {
 	margin: auto;
- 	margin-top: 5px;
+ 	margin-top: 15px;
 	width: 85%;
 	max-width: 100%;
 	position: relative;
 	overflow: hidden;
+	box-shadow: 0 0 20px 2px #000;
 }
 .slider-p{
 	display: -o-flex;
