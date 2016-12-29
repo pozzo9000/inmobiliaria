@@ -1,9 +1,33 @@
 body{
-	background-color: #f00;
+	background-image: url(https://upload.wikimedia.org/wikipedia/commons/8/8c/Puente_de_la_Mujer_-_Puerto_Madero_-_Buenos_Aires_-_Argentina.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	border: 0;
+	margin: 0;
 }
 section#contenido{
 	background-color: white;
 	height: 60%;
 	width: 90%;
+	margin: auto;
+	box-sizing: border-box;
+	margin-top: 3%;
+	border-radius: 0 50px 0 50px;
+	background-color: rgba(0, 116, 191, 0.5);
+	padding-bottom: 50px;
+}
+div.imagen{
+	margin: auto;
+	display: table;
+	align-items: center;
+}
+img{
+	width: 50%;
+	margin:15px;
+	box-shadow: 3px 2px 15px 5px #000;
+}
+div.linea{
+	border-top: 3px solid black;
+	width: 95%;
 	margin: auto;
 }
