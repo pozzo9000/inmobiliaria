@@ -4,7 +4,7 @@
 
 #v-a-slider{
   display: flex;
-  min-height: 100vh;
+  min-height: 100%;
   margin-right: auto; 
   margin-left: auto;
 }
