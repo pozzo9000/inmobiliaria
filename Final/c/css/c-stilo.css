@@ -9,30 +9,67 @@
     width: 100%;
 }
 .cinc{
-    background-color: red;
     margin: 0.5%;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
     width: 49%;
     float: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
-.div-area-c{
+#formulario-contacto{
+    padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.sector{
+    padding: 10px;
+    margin-bottom: 10px;
     border: none;
-    margin: 0;
-    padding: 0;
-    
+    border-radius: 5px;
+    outline: none;
+    font-size: 1.3rem;
+    transition: 0.2s;
 }
-.div-area-c:not(.np){
-    width: 100%;
-}
-.area-c{
-    margin: 2px;
-    width: 90%;
-    
+textarea{
+    max-height: 150px;
+    resize: none;
 }
 .np{
-    margin: 2px;
-    width: 44.5%;
-    
+    width: 49%;
+}
+.c{
+    width: 100%;
+}
+.sector:focus{
+    box-shadow: 0 0 5px 2px blue;
+}
+#urgencia-boton {
+    width: 100%;
+    outline: none;
+    background-color: rgba(0,0,125,0.3);
+    user-select:none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#urgencia{
+    display: none;
+}
+#urgencia:checked ~ #urgencia-boton{
+    background-color: green;
+}
+#boton{
+    font-size: 2rem;
+    text-transform: uppercase;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin-top:10px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.5s;
+}
+#boton:focus{
+    transform: scale(1.05);
 }

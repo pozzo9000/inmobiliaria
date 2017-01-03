@@ -28,11 +28,17 @@
 			<h1>Contacto</h1>
 			<div id="contenedor-cont">
 			    <div class="cinc">Mitad 1</div>
-			    <div class="cinc">
-			        <div class="div-area-c"><input type="text" name="nombre" placeholder="Nombre" id="" class="area-c np">
-			        <input type="text" name="apellido" placeholder="Apellido" id="" class="area-c np"></div>
-			        <div class="div-area-c"><input type="text" name="telefono" placeholder="Telefono ej:011-1234-5678" id="" class="area-c"></div>
-			        <div class="div-area-c"><input type="text" name="mail" placeholder="E-maiil" id="" class="area-c"></div>
+                <div class="cinc">
+                    <form id="formulario-contacto" action="enviar.php">
+                            <input type="text" class="sector np" name="" placeholder="Nobre" required>
+                            <input type="text" class="sector np" name="" placeholder="Apellido" required>
+                            <input type="text" class="sector c" name="" placeholder="Numero de teléfono" required>
+                            <input type="text" class="sector c" name="" placeholder="E-Mail" required>
+                            <textarea name="" class="sector c" id="" cols="30" rows="10" placeholder="Escriba aquí" required></textarea>
+                            <input type="checkbox" id="urgencia" value="Urgente">
+                            <label for="urgencia" id="urgencia-boton" class="sector"><a>Este mensaje es urgente</a></label>
+                        <button type="submit" id="boton" value="ENVIAR">Enviar</button>
+                    </form>
 			    </div>
 			</div>
 		</header>

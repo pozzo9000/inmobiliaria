@@ -12,6 +12,8 @@ body{
 section#contenido{
 	background-color: white;
 	height: 60%;
+    max-width:  1300px;
+    min-width:  600px;
 	width: 90%;
 	margin: auto;
 	box-sizing: border-box;
