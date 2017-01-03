@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+}
+#contenedor-cont{
+    padding: 0;
+    margin: 0;
+    padding-bottom: 25px;
+    display: table;
+    width: 100%;
+}
+.cinc{
+    background-color: red;
+    margin: 0.5%;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 49%;
+    float: left;
+}
+.div-area-c{
+    border: none;
+    margin: 0;
+    padding: 0;
+    
+}
+.div-area-c:not(.np){
+    width: 100%;
+}
+.area-c{
+    margin: 2px;
+    width: 90%;
+    
+}
+.np{
+    margin: 2px;
+    width: 45%;
+    
+}
