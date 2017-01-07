@@ -9,7 +9,7 @@ var capture ={
 		this.inApellido = $("#apellido").val();
 		this.inTelefono = $("#el").val();
 		this.inMail = $("#mail").val();
-		this.inText = $("#texto").val()
+		this.inText = $("#texto").val();
 	},
 };
 var primerNivel = {
@@ -18,21 +18,21 @@ var primerNivel = {
 	statusTelefono: 0400,
 	statusmail: 0400,
 	statusTexto: 0400,
+
 	funcNombre (){
 		capture.valorizar();
+		var objNombre = $("#nombre");
 		if (capture.inNombre==="") {
+			objNombre.addClass("vacio");
 			this.statusNombre = 0400
+		} else if() {
+			
 		} else {
 			this.statusNombre = 1345
 		}
 	},
 	funcApellido() {
-		capture.valorizar();
-		if (capture.inApellido==="") {
-			this.statusApellido = 0400
-		} else {
-			this.statusApellido = 1345
-		}
+		
 	},
 	funcTelefono() {
 		
@@ -44,8 +44,8 @@ var primerNivel = {
 		
 	},
 	funcValidar(){
-		objetos= $(".sector");
-		objetos.removeClass("");
+		var pato = $(".sector");
+		pato.removeClass("vacio");
 		this.funcNombre();
 		this.funcApellido();
 		this.funcTelefono();
