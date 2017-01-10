@@ -16,7 +16,7 @@ var primerNivel = {
 	statusNombre: 0400,
 	statusApellido: 0400,
 	statusTelefono: 0400,
-	statusmail: 0400,
+	statusMail: 0400,
 	statusTexto: 0400,
 
 	funcNombre (){
@@ -75,7 +75,6 @@ var primerNivel = {
 		capture.valorizar();
 		var objTelefono = $("#tel");
 		var pTelefono = $("#ptel");
-		var expresionTel =/^[A-Za-z\u00C0-\u017F]*$/;
 		if (objTelefono.val().length == 0) {
 			objTelefono.addClass("vacio");
 			pTelefono.addClass("pvacio").hide();
@@ -99,32 +98,51 @@ var primerNivel = {
 	},
 	funcMail() {
 		capture.valorizar();
-		var objTelefono = $("#tel");
-		var pTelefono = $("#ptel");
-		var expresionTel =/^[A-Za-z\u00C0-\u017F]*$/;
-		if (objTelefono.val().length == 0) {
-			objTelefono.addClass("vacio");
-			pTelefono.addClass("pvacio").hide();
-			this.statusTelefono = 0400
-		} else if(objTelefono.val().length <= 7) {
-			objTelefono.addClass("corto");
-			pTelefono.addClass("pcorto").hide();
-			this.statusTelefono = 0400
-		} else if(objTelefono.val().length >= 13) {
-			objTelefono.addClass("largo");
-			pTelefono.addClass("plargo").hide();
-			this.statusTelefono = 0400
-		} else if(isNaN(capture.inTelefono)) {
-			objTelefono.addClass("inex");
-			pTelefono.addClass("pinex").hide();
-			this.statusTelefono = 0400
+		var objMail = $("#mail");
+		var pMail = $("#pmail");
+		var expresionMail =/\w+@\w+\.+[a-z]/;
+		if (capture.inMail == "") {
+			objMail.addClass("vacio");
+			pMail.addClass("pvacio").hide();
+			this.statusMail = 0400
+		} else if(objMail.val().length <= 9) {
+			objMail.addClass("corto");
+			pMail.addClass("pcorto").hide();
+			this.statusMail = 0400
+		} else if(objMail.val().length >= 25) {
+			objMail.addClass("largo");
+			pMail.addClass("plargo").hide();
+			this.statusMail = 0400
+		} else if(!expresionMail.test(capture.inMail)) {
+			objMail.addClass("inex");
+			pMail.addClass("pinex").hide();
+			this.statusMail = 0400
 		}else {
-			objTelefono.addClass("correct");
-			this.statusTelefono = 1345
+			objMail.addClass("correct");
+			this.statusMail = 1345
 		}
 	},
 	funcText() {
-		
+		capture.valorizar();
+		var objText = $("#texto");
+		var pText = $("#parea");
+		var expresionText =/^[A-Za-z0-9\$"\s\-\.\u00C0-\u017F]*$/;
+		if (capture.inText === "") {
+			objText.addClass("vacio");
+			pText.addClass("pvacio").hide();
+			this.statusTexto = 0400
+		} else if(objText.val().length <= 10) {
+			objText.addClass("corto");
+			pText.addClass("pcorto").hide();
+			this.statusTexto = 0400
+		} else if(!expresionText.test(capture.inText)) {
+			objText.addClass("inex");
+			pText.addClass("pinex").hide();
+			this.statusTexto = 0400
+		}else {
+			objText.addClass("correct");
+			this.statusTexto = 1345
+		}
 	},
 	funcParrafos() {
 		$(".pvacio").text("Este contenedor está vacio").slideDown(500);
@@ -138,7 +156,7 @@ var primerNivel = {
 		parrafos.slideUp(500, function(){
 			$().empty()
 		});
-		sectores.removeClass("vacio").removeClass("corto").removeClass("largo").removeClass(".inex").removeClass(".correct");
+		sectores.removeClass("vacio").removeClass("corto").removeClass("largo").removeClass(".inex").removeClass("correct");
 		parrafos.removeClass("pvacio").removeClass("pcorto").removeClass("plargo").removeClass("pinex");
 		this.funcNombre();
 		this.funcApellido();
@@ -153,7 +171,7 @@ var SegundoNivel = {
 	valorSegundoNivel: false,
 	funcSegundoNivel (){
 		primerNivel.funcValidar();
-		if (primerNivel.statusNombre === 1345) {
+		if (primerNivel.statusNombre === 1345 && primerNivel.statusApellido === 1345 && primerNivel.statusTelefono === 1345 && primerNivel.statusMail === 1345 && primerNivel.statusTexto === 1345) {
 			this.valorSegundoNivel = true
 		} else {
 			this.valorSegundoNivel = false
@@ -168,5 +186,5 @@ function confirmar() {
 	SegundoNivel.funcSegundoNivel();
 	console.log(SegundoNivel.valorSegundoNivel);
 	$("").text("Hole")
-	return false//SegundoNivel.valorSegundoNivel
+	return SegundoNivel.valorSegundoNivel
 }
