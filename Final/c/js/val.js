@@ -22,12 +22,26 @@ var primerNivel = {
 	funcNombre (){
 		capture.valorizar();
 		var objNombre = $("#nombre");
+		var pNombre = $("#pnomb");
+		var expresionNombre =/^[A-Za-z\u00C0-\u017F]*$/;
 		if (capture.inNombre==="") {
 			objNombre.addClass("vacio");
+			pNombre.addClass("pvacio").hide();
 			this.statusNombre = 0400
-		} else if() {
-			
-		} else {
+		} else if(objNombre.val().length <= 3) {
+			objNombre.addClass("corto");
+			pNombre.addClass("pcorto").hide();
+			this.statusNombre = 0400
+		} else if(objNombre.val().length >= 15) {
+			objNombre.addClass("largo");
+			pNombre.addClass("pvacio").hide();
+			this.statusNombre = 0400
+		} else if(!expresionNombre.test(capture.inNombre)) {
+			objNombre.addClass("inex");
+			pNombre.addClass("pinex").hide();
+			this.statusNombre = 0400
+		}else {
+			pNombre.hide();
 			this.statusNombre = 1345
 		}
 	},
@@ -43,14 +57,25 @@ var primerNivel = {
 	funcText() {
 		
 	},
+	funcParrafos() {
+		$(".pvacio").text("Este contenedor está vacio").slideDown(500);
+		$(".pinex").text("Formato de texto erroneo").slideDown(500);
+		$(".pcorto").text("Este campo exije 3 caracteres").slideDown(500);
+	},
 	funcValidar(){
-		var pato = $(".sector");
-		pato.removeClass("vacio");
+		var sectores = $(".sector");
+		var parrafos = $(".pstatus");
+		parrafos.slideUp(500, function(){
+			$().empty()
+		});
+		sectores.removeClass("vacio").removeClass("corto").removeClass("largo").removeClass(".inex");
+		parrafos.removeClass("pvacio").removeClass("pcorto").removeClass("plargo").removeClass("pinex");
 		this.funcNombre();
 		this.funcApellido();
 		this.funcTelefono();
 		this.funcMail();
-		this.funcText()
+		this.funcText();
+		this.funcParrafos();
 	}
 };
 
@@ -72,5 +97,6 @@ function confirmar() {
 	console.log(SegundoNivel.valorSegundoNivel);
 	SegundoNivel.funcSegundoNivel();
 	console.log(SegundoNivel.valorSegundoNivel);
+	$("").text("Hole")
 	return false//SegundoNivel.valorSegundoNivel
 }

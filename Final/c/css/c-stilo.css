@@ -24,21 +24,24 @@
 }
 .sector{
     padding: 10px;
-    margin-bottom: 10px;
     border: none;
     border-radius: 5px;
     outline: none;
     font-size: 1.3rem;
     transition: 0.2s;
+    width: 100%;
+    margin-bottom: 5px;
 }
 textarea{
     max-height: 150px;
     resize: none;
 }
 .np{
+    display: table;
     width: 49%;
 }
 .c{
+    display: table;
     width: 100%;
 }
 .sector:focus{
@@ -74,5 +77,12 @@ textarea{
     transform: scale(1.05);
 }
 .vacio{
-    box-shadow: 0 0 5px 2px red;
+    box-shadow: 0 0 1px 2px red;
+}
+.corto , .largo{
+    box-shadow: 0 0 1px 2px orange;
+}
+p.pstatus{
+    margin: 0.2rem;
+    font-size: 1.2rem;
 }
