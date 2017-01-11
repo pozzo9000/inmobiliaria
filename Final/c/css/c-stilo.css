@@ -12,10 +12,68 @@
     margin: 0.5%;
     width: 49%;
     float: left;
-    display: flex;
+    display: tablet;
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+.contladcontblock{
+    padding: 25px;
+    width: 100%;
+    display: table;
+}
+div.contladcont {
+    float: text-wrap: none;
+    width: 100%;
+    height: 33.3%;
+    background-color: aliceblue;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    display: table;
+    padding: 15px 0;
+}
+div.contmayor{
+    width: 74%;
+    float: left;
+    text-align: left;
+    display: table;
+    margin: 6px;
+}
+div.contmayor p, div.contmayor h1{
+    margin: 0;
+    margin-left: 8%;;
+    font-weight: bold;
+}
+div.contmayor p{
+    font-size:1.25rem;
+    margin-top: 5px;
+    color: grey;
+}
+div.contmayor h1{
+    text-transform: uppercase;
+    font-size:1.39rem;
+}
+div.simbolocont{
+    float: right;
+    width: 20%;
+    margin: auto;
+    font-size: 2rem;
+    color: #fff;
+    padding: 10px;
+}
+div.simbolocont div.simbred{
+    display: table;
+    margin: auto;
+    padding: 8px;
+    background-color: #000;
+    border-radius: 50%;
+}
+div.simbolocont div.simbred div.simb{
+    display: table;
+    width: 2.35rem;
+    margin: auto;
+}
+
 #formulario-contacto{
     padding: 25px;
     display: flex;
@@ -30,7 +88,8 @@
     font-size: 1.3rem;
     transition: 0.2s;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+    color: #000;
 }
 textarea{
     max-height: 150px;
@@ -39,10 +98,12 @@ textarea{
 .np{
     display: table;
     width: 49%;
+    margin-bottom: 2px; 
 }
 .c{
     display: table;
     width: 100%;
+    margin-bottom: 2px;
 }
 .sector:focus{
     box-shadow: 0 0 5px 2px blue;
@@ -77,22 +138,25 @@ textarea{
     transform: scale(1.05);
 }
 .vacio, .inex{
-    box-shadow: 0 0 1px 2px red;
-    background-color: red;
+    box-shadow: 0 0 1px 2px hsl(0, 100%, 50%);
+    background-color: hsl(0, 100%, 75%);
+    color: #fff;
 }
 .pvacio, .pinex{
-    color: red;
+    color: hsl(0, 100%, 50%);
 }
 .corto , .largo{
-    box-shadow: 0 0 1px 2px orange;
-    background-color: orange;
+    box-shadow: 0 0 1px 2px hsl(28, 100%, 50%);
+    background-color: hsl(28, 100%, 75%);
+    color: #fff;
 }
 .pcorto, .plargo {
-    color: orange;
+    color: hsl(28, 100%, 50%);
 }
 .correct{
-   box-shadow: 0 0 1px 2px green;
-   background-color: lightgreen;
+   box-shadow: 0 0 1px 2px hsl(118, 100%, 40%);
+   background-color: hsl(118, 100%, 75%);
+   color: #000;
 }
 p.pstatus{
     margin: 0.2rem;
