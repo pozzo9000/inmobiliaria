@@ -31,12 +31,12 @@
 			    <div class="cinc">
                    	<h1>Datos Personales</h1>
                     <div class="contentas">
-                        <div class="sectiontas sectiontas-1"><input type="text"></div>
-                        <div class="sectiontas sectiontas-1"><input type="text"></div>
-                        <div class="sectiontas sectiontas-1"><input type="text"></div>
-                        <div class="sectiontas sectiontas-1"><input type="text"></div>
-                        <div class="sectiontas sectiontas-1"><input type="text"></div>
-                        <div class="sectiontas sectiontas-1"><input type="text"></div>
+                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Nombre"></div>
+                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Apellido"></div>
+                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Telefono"></div>
+                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Telefono 2"></div>
+                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Mail"></div>
+                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Mail 2"></div>
                     </div>
                 </div>
                 <div class="cinc">
@@ -61,24 +61,29 @@
                                 <option>Otros</option>
                             </select>
                             <div id="venalq">
-                                <input type="radio" name="ventalq" id="ventar" class="inravenal" checked>
+                                <input type="radio" name="ventalq" value="Venta" id="ventar" class="inravenal" checked>
                                 <label for="ventar" id="vent">Venta</label>
-                                <input type="radio" name="ventalq" id="alquilerr" class="inravenal">
+                                <input type="radio" name="ventalq" value="Alquiler" id="alquilerr" class="inravenal">
                                 <label for="alquilerr">Alquiler</label>
                             </div>
                         </div>
-                        <div class="sectiontas"><input type="text">|
-                        	<input type="text">
-                        	<input type="text">
-                        	<input type="text">
-                        	<input type="text">
+                        <div class="sectiontas" id="datzoncalnum">
+                        	<input type="text" id="zona" placeholder="Zona">
+                        	<input type="text" id="calle" placeholder="Calle">
+                        	<input type="text" id="numero" placeholder="Altura">
+                        	<div id="pisolado">
+                        		<input type="text" id="piso" placeholder="piso">
+                        		<input type="text" id="lado" placeholder="lado">
+                        	</div>
                         </div>
-                        <div class="sectiontas">
-                        	<input type="radio" name="gender" value="male" checked> Male<br>
- 							 <input type="radio" name="gender" value="female"> Female<br>
+                        <div class="sectiontas" id="aptitud">
+                        	<input type="radio" name="aptitud" value="Apto profecional" id="apt" class="" checked>
+                                <label for="apt" id="vent">APT</label>
+                                <input type="radio" name="aptitud" value="No apto profecional" id="napt" class="">
+                                <label for="napt">NAPT</label>
   						</div>
                         <div class="sectiontas"><textarea></textarea></div>
-                        <div class="sectiontas"><input type="button"></div>
+                        <div class="sectiontas"><input type="button" value="ENVIAR"></div>
                     </div>
                 </div>
 			</form>

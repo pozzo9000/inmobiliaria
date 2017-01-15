@@ -33,14 +33,14 @@ div.sectiontas{
     font-size: 1.3rem;
     width: 98%;
     padding-bottom: 2px;
-    float: left;
+    /*float: left;*/
 }
 div.contentas div:last-child {
     padding-bottom: 0px;
 }
-div.sectiontas input, select , label {
+div.sectiontas input, select , label, textarea {
     padding:15px 10px;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     border: none;
     border-radius: 5px;
     outline: none;
@@ -77,4 +77,46 @@ select{
 #ventar:checked + label, 
 #alquilerr:checked + label{
 	background-color: green;
+}
+#zona ,#calle {
+	width: 30.625%;
+	margin-right: 0.5%;
+	float: left;
+}
+#numero{
+	width: 15.375%;
+	/*margin-left: 0.5%;*/
+	/*display: none;*/
+}
+#pisolado{
+	display: table;
+	width: 21.375%;
+	float: right;
+}
+#piso, #lado{
+	width: 49%;
+}
+#lado{
+	float: right;
+}
+#aptitud input{
+	display: none;
+}
+#aptitud label{
+	width: 49%;
+	float: left;
+	background-color: red;
+	cursor: pointer;
+	transition: 0.5s;
+}
+#aptitud label:last-child{
+	float: right;
+}
+#apt:checked + label ,
+#napt:checked + label{
+	background-color: blue;
+}
+textarea{
+	max-width: 100%;
+	height: 6.7rem;
 }
