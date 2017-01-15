@@ -22,6 +22,7 @@ section#contenido{
 	background-color: rgba(0, 116, 191, 0.8);
 	padding-bottom: 50px;
 	box-shadow: 3px 2px 60px #000;
+	display: table;
 }
 div.imagen{
 	margin: auto;

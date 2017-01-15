@@ -75,6 +75,7 @@ var primerNivel = {
 		capture.valorizar();
 		var objTelefono = $("#tel");
 		var pTelefono = $("#ptel");
+		var expresionTel =/[0-9\-\+]/;
 		if (objTelefono.val().length == 0) {
 			objTelefono.addClass("vacio");
 			pTelefono.addClass("pvacio").hide();
@@ -83,11 +84,11 @@ var primerNivel = {
 			objTelefono.addClass("corto");
 			pTelefono.addClass("pcorto").hide();
 			this.statusTelefono = 0400
-		} else if(objTelefono.val().length >= 13) {
+		} else if(objTelefono.val().length >= 25) {
 			objTelefono.addClass("largo");
 			pTelefono.addClass("plargo").hide();
 			this.statusTelefono = 0400
-		} else if(isNaN(capture.inTelefono)) {
+		} else if(!expresionTel.test(capture.inTelefono)) {
 			objTelefono.addClass("inex");
 			pTelefono.addClass("pinex").hide();
 			this.statusTelefono = 0400

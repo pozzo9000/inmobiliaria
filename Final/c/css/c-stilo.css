@@ -12,7 +12,7 @@
     margin: 0.5%;
     width: 49%;
     float: left;
-    display: tablet;
+    display: table;
     flex-wrap: wrap;
     justify-content: space-between;
 }
@@ -23,7 +23,7 @@
     display: table;
 }
 div.contladcont {
-    float: text-wrap: none;
+    float: none;
     width: 100%;
     height: 33.3%;
     background-color: aliceblue;
@@ -88,7 +88,7 @@ div.simbolocont div.simbred div.simb{
     font-size: 1.3rem;
     transition: 0.2s;
     width: 100%;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
     color: #000;
 }
 textarea{
