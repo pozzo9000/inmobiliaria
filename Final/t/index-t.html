@@ -31,12 +31,12 @@
 			    <div class="cinc">
                    	<h1>Datos Personales</h1>
                     <div class="contentas">
-                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Nombre"></div>
-                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Apellido"></div>
-                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Telefono"></div>
-                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Telefono 2"></div>
-                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Mail"></div>
-                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Mail 2"></div>
+                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Nombre" onblur="return  caca.valorizar();"></div>
+                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Apellido" onsubmit="return  valorizar();"></div>
+                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Telefono" onsubmit="return  valorizar();"></div>
+                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Telefono 2" onsubmit="return  valorizar();"></div>
+                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Mail" onsubmit="return  valorizar();"></div>
+                        <div class="sectiontas sectiontas-1"><input type="text" placeholder="Mail 2" onsubmit="return  valorizar();"></div>
                     </div>
                 </div>
                 <div class="cinc">
@@ -61,7 +61,7 @@
                                 <option>Otros</option>
                             </select>
                             <div id="venalq">
-                                <input type="radio" name="ventalq" value="Venta" id="ventar" class="inravenal" checked>
+                                <input type="radio" name="ventalq" value="Venta" id="ventar" class="inravenal">
                                 <label for="ventar" id="vent">Venta</label>
                                 <input type="radio" name="ventalq" value="Alquiler" id="alquilerr" class="inravenal">
                                 <label for="alquilerr">Alquiler</label>
