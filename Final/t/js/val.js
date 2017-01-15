@@ -1,7 +1,12 @@
-var caca ={
- valorizar() {
-	alert("Que se yo")
-}
+var capture = {
+
+};
+
+var primerPiso = {
+
+};
+
+var segundoPiso = {
 };
 // ------------------------------------------------------------------------------------------------------------
 function checkear() {
