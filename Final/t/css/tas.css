@@ -38,6 +38,49 @@ div.sectiontas{
 div.contentas div:last-child {
     padding-bottom: 0px;
 }
+
+
+#divnombre, 
+#divapellido, 
+#divtelefono, 
+#divtelefono2, 
+#divmail, 
+#divmail2, 
+#divzona, 
+#divcalle, 
+#divaltura, 
+#divpiso, 
+#divlado{
+    display: table;
+}
+#divzona, 
+#divcalle, 
+#divaltura, 
+#divpiso, 
+#divlado{
+    float: left;
+}
+#divaltura{
+    width: 13.5%;
+    margin-right: 0.5%;
+}
+#divzona, 
+#divcalle{
+    width: 30%;
+    margin-right: 0.5%;
+}
+#divpiso{
+     width: 49.5%;
+    float: left;
+}
+#divlado{
+    width: 49.5%;
+    float: right;
+}
+
+
+
+
 div.sectiontas input, select , label, textarea, button {
     padding:15px 10px;
     font-size: 1.15rem;
@@ -49,13 +92,23 @@ div.sectiontas input, select , label, textarea, button {
     margin-bottom: 5px;
     color: #000;
 }
-select{
+#select{
     width: 49%;
+    display: table;
+    float: left;
+}
+select{
     margin-right: 0.5%;
     float: left;
 }
-#venalq{
+#divvenalq{
     width: 49%;
+    display: table;
+    margin-left: 0.5%;
+    float: left;
+}
+#venalq{
+    width: 100%;
     margin-left: 0.5%;
     float: left;
     display: table;
@@ -79,22 +132,22 @@ select{
 	background-color: #2722AC;
 }
 #zona ,#calle {
-	width: 30.625%;
-	margin-right: 0.5%;
+	width: 100%;
 	float: left;
 }
 #numero{
-	width: 15.375%;
+	width: 100%;
 	/*margin-left: 0.5%;*/
 	/*display: none;*/
 }
 #pisolado{
 	display: table;
-	width: 21.375%;
-	float: right;
+	margin-left: 1%;
+    width: 24%;
 }
 #piso, #lado{
-	width: 49%;
+	width: 100%;
+    float: left;
 }
 #lado{
 	float: right;
@@ -119,4 +172,8 @@ select{
 textarea{
 	max-width: 100%;
 	height: 6.7rem;
+}
+p{
+    margin: 0;
+    size: auto;
 }
