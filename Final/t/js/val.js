@@ -9,19 +9,19 @@ var capturar = {
 		this.nombre = $("#nomb").val()
 	},
 	apellCapture() {
-
+		this.apellido = $("#apell").val()
 	},
 	telCapture() {
-
+		this.nombre = $("#nomb").val()
 	},
 	telDCapture() {
-
+		this.nombre = $("#nomb").val()
 	},
 	mailCapture() {
-
+		this.nombre = $("#nomb").val()
 	},
 	mailDCapture() {
-
+		this.nombre = $("#nomb").val()
 	}
 };
 var validar = {
