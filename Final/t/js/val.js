@@ -32,10 +32,20 @@ var validar = {
 		$(".pcorto").text("•Este texto es muy corto").slideDown(500);
 		$(".plargo").text("•Se excedió el máximo de caracteres").slideDown(500);
 	},
+	restartClass() {
+		var sectores = $(".inputcl");
+		var parrafos = $(".pstatus");
+		parrafos.slideUp(500, function(){
+			$().empty()
+		});
+		sectores.removeClass("vacio").removeClass("corto").removeClass("largo").removeClass(".inex").removeClass("correct");
+		parrafos.removeClass("pvacio").removeClass("pcorto").removeClass("plargo").removeClass("pinex")
+	},
 	
 	valNombre() {
 		capturar.nomCapture();
 		var objNomb = $("#nomb");
+		this.restartClass();
 		var pNomb = $("#pnombre");
 		var expresionNombre = /^[A-Za-z\u00C0-\u017F]*$/
 		if (capturar.nombre==="") {
@@ -43,7 +53,7 @@ var validar = {
 			objNomb.addClass("vacio");
 			pNomb.addClass("pvacio").hide();
 			this.funcParrafos()
-		} else if(capturar.nombre.length <= 3){
+		} else if(capturar.nombre.length <= 2){
 			alert("crack, maquina");
 			pNomb.addClass("pcorto").hide();
 			this.funcParrafos()
@@ -52,7 +62,6 @@ var validar = {
 		} else if(capturar.nombre.length >= 10){
 			alert("Mandarina")
 		} else {
-			alert("Peque")
 		}
 	}
 };

@@ -146,7 +146,7 @@ var primerNivel = {
 		}
 	},
 	funcParrafos() {
-		$(".pvacio").text("•Este contenedor está vacio").slideDown(500);
+		$(".pvacio").text("•Este contenedor está vaco").slideDown(500);
 		$(".pinex").text("•Formato erroneo").slideDown(500);
 		$(".pcorto").text("•Este texto es muy corto").slideDown(500);
 		$(".plargo").text("•Se exedio el maximo de caracteres").slideDown(500);
