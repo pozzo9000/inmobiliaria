@@ -177,3 +177,29 @@ p{
     margin: 0;
     size: auto;
 }
+.vacio, .inex{
+    box-shadow: 0 0 1px 2px hsl(0, 100%, 50%);
+    background-color: hsl(0, 100%, 75%);
+    color: #fff;
+}
+.pvacio, .pinex{
+    color: hsl(0, 100%, 50%);
+}
+.corto , .largo{
+    box-shadow: 0 0 1px 2px hsl(28, 100%, 50%);
+    background-color: hsl(28, 100%, 75%);
+    color: #fff;
+}
+.pcorto, .plargo {
+    color: hsl(28, 100%, 50%);
+}
+.correct{
+   box-shadow: 0 0 1px 2px hsl(118, 100%, 40%);
+   background-color: hsl(118, 100%, 75%);
+   color: #000;
+}
+p.pstatus{
+    margin: 0.2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}

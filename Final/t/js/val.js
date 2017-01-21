@@ -26,15 +26,27 @@ var capturar = {
 };
 var validar = {
 	statusNombre : 0400,
-
+	funcParrafos() {
+		$(".pvacio").text("•Este contenedor está vacío").slideDown(500);
+		$(".pinex").text("•Formato erróneo").slideDown(500);
+		$(".pcorto").text("•Este texto es muy corto").slideDown(500);
+		$(".plargo").text("•Se excedió el máximo de caracteres").slideDown(500);
+	},
+	
 	valNombre() {
 		capturar.nomCapture();
 		var objNomb = $("#nomb");
+		var pNomb = $("#pnombre");
 		var expresionNombre = /^[A-Za-z\u00C0-\u017F]*$/
 		if (capturar.nombre==="") {
-			alert("Hola")
+			alert("Hola");
+			objNomb.addClass("vacio");
+			pNomb.addClass("pvacio").hide();
+			this.funcParrafos()
 		} else if(capturar.nombre.length <= 3){
-			alert("crack, maquina")
+			alert("crack, maquina");
+			pNomb.addClass("pcorto").hide();
+			this.funcParrafos()
 		}else if(!expresionNombre.test(capturar.nombre)){
 			alert("narnia")
 		} else if(capturar.nombre.length >= 10){
@@ -46,6 +58,6 @@ var validar = {
 };
 // ------------------------------------------------------------------------------------------------------------
 function checkear() {
-	alert("No hay patos en angola (creo)");
+	alert("No hay patos en angola (mentira)");
 	return false
 }
