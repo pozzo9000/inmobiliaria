@@ -29,12 +29,21 @@ var validar = {
 
 	valNombre() {
 		capturar.nomCapture();
-		var objNomb = $("#nomb")
+		var objNomb = $("#nomb");
+		var expresionNombre = /^[A-Za-z\u00C0-\u017F]*$/
 		if (capturar.nombre==="") {
-			
+			alert("Hola")
+		} else if(capturar.nombre.length <= 3){
+			alert("crack, maquina")
+		}else if(!expresionNombre.test(capturar.nombre)){
+			alert("narnia")
+		} else if(capturar.nombre.length >= 10){
+			alert("Mandarina")
+		} else {
+			alert("Peque")
 		}
 	}
-}
+};
 // ------------------------------------------------------------------------------------------------------------
 function checkear() {
 	alert("No hay patos en angola (creo)");
