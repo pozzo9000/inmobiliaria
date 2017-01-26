@@ -25,7 +25,6 @@ var capturar = {
 	}
 };
 var validar = {
-	statusNombre : 0400,
 	funcParrafos() {
 		$(".pvacio").text("•Este contenedor está vacío").slideDown(500);
 		$(".pinex").text("•Formato erróneo").slideDown(500);
@@ -38,10 +37,9 @@ var validar = {
 		parrafos.slideUp(500, function(){
 			$().empty()
 		});
-		sectores.removeClass("vacio").removeClass("corto").removeClass("largo").removeClass(".inex").removeClass("correct");
 		parrafos.removeClass("pvacio").removeClass("pcorto").removeClass("plargo").removeClass("pinex")
 	},
-	
+	statusNombre : 0400,
 	valNombre() {
 		capturar.nomCapture();
 		var objNomb = $("#nomb");
@@ -52,18 +50,79 @@ var validar = {
 			alert("Hola");
 			objNomb.addClass("vacio");
 			pNomb.addClass("pvacio").hide();
+			this.statusNombre = 0401;
 			this.funcParrafos()
 		} else if(capturar.nombre.length <= 2){
 			alert("crack, maquina");
+			objNomb.addClass("corto");
 			pNomb.addClass("pcorto").hide();
+			this.statusNombre = 0400;
 			this.funcParrafos()
 		}else if(!expresionNombre.test(capturar.nombre)){
 			alert("narnia")
+			objNomb.addClass("inex");
+			pNomb.addClass("pinex").hide();
+			this.statusNombre = 0401;
+			this.funcParrafos()
 		} else if(capturar.nombre.length >= 10){
 			alert("Mandarina")
+			
+			pNomb.addClass("plargo").hide();
+			this.statusNombre = 0400;
+			this.funcParrafos()
 		} else {
+			this.statusNombre = 1988;
 		}
-	}
+		if (this.statusNombre === 1988) {
+			objNomb.addClass("correct")
+		} else if(this.statusNombre === 0401){
+			objNomb.removeClass("correct").removeClass("corto").removeClass("largo")
+		} else if(this.statusNombre === 0400){
+			objNomb.removeClass("correct").removeClass("vacio").removeClass("inex")
+		}
+	},
+	statusApellido : 0400,
+	valApellido() {
+		capturar.apellCapture();
+		var objApell = $("#apell");
+		this.restartClass();
+		var pApell = $("#papellido");
+		var expresionApellido = /^[A-Za-z\u00C0-\u017F]*$/
+		if (capturar.apellido==="") {
+			alert("Hola");
+			objApell.addClass("vacio");
+			pApell.addClass("pvacio").hide();
+			this.statusApellido = 0401;
+			this.funcParrafos()
+		} else if(capturar.apellido.length <= 2){
+			alert("crack, maquina");
+			objApell.addClass("corto");
+			pApell.addClass("pcorto").hide();
+			this.statusApellido = 0400;
+			this.funcParrafos()
+		}else if(!expresionApellido.test(capturar.apellido)){
+			alert("narnia")
+			objApell.addClass("inex");
+			pApell.addClass("pinex").hide();
+			this.statusApellido = 0401;
+			this.funcParrafos()
+		} else if(capturar.apellido.length >= 10){
+			alert("Mandarina")
+			
+			pApell.addClass("plargo").hide();
+			this.statusApellido = 0400;
+			this.funcParrafos()
+		} else {
+			this.statusApellido = 1988;
+		};
+		if (this.statusApellido === 1988) {
+			objApell.addClass("correct")
+		} else if(this.statusApellido === 0401){
+			objApell.removeClass("correct").removeClass("corto").removeClass("largo")
+		} else if(this.statusApellido === 0400){
+			objApell.removeClass("correct").removeClass("vacio").removeClass("inex")
+		}
+	},
 };
 // ------------------------------------------------------------------------------------------------------------
 function checkear() {
