@@ -30,6 +30,7 @@ var validar = {
 		$(".pinex").text("•Formato erróneo").slideDown(500);
 		$(".pcorto").text("•Este texto es muy corto").slideDown(500);
 		$(".plargo").text("•Se excedió el máximo de caracteres").slideDown(500);
+
 	},
 	restartClass() {
 		var sectores = $(".inputcl");
@@ -123,7 +124,50 @@ var validar = {
 			objApell.removeClass("correct").removeClass("vacio").removeClass("inex")
 		}
 	},
+	statusTelefono : 0400,
+	valTelefono() {
+		capturar.telCapture();
+		var objTel = $("#tel");
+		this.restartClass();
+		var pTel = $("#ptelefono");
+		var expresionTelefono = /^[0-9]*$/
+		if (capturar.tel==="") {
+			alert("Hola");
+			objTel.addClass("vacio");
+			pTel.addClass("pvacio").hide();
+			this.statusTelefono = 0401;
+			this.funcParrafos()
+		} else if(capturar.tel.length <= 2){
+			alert("crack, maquina");
+			objTel.addClass("corto");
+			pTel.addClass("pcorto").hide();
+			this.statusTelefono = 0400;
+			this.funcParrafos()
+		}else if(!expresionTelefono.test(capturar.tel)){
+			alert("narnia")
+			objTel.addClass("inex");
+			pTel.addClass("pinex").hide();
+			this.statusTelefono = 0401;
+			this.funcParrafos()
+		} else if(capturar.tel.length >= 10){
+			alert("Mandarina")
+			
+			pTel.addClass("plargo").hide();
+			this.statusTelefono = 0400;
+			this.funcParrafos()
+		} else {
+			this.statusTelefono = 1988;
+		};
+		if (this.statusTelefono === 1988) {
+			objTel.addClass("correct")
+		} else if(this.statusTelefono === 0401){
+			objTel.removeClass("correct").removeClass("corto").removeClass("largo")
+		} else if(this.statusTelefono === 0400){
+			objTel.removeClass("correct").removeClass("vacio").removeClass("inex") }
+
+	},
 };
+
 // ------------------------------------------------------------------------------------------------------------
 function checkear() {
 	alert("No hay patos en angola (mentira)");
