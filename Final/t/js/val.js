@@ -12,7 +12,7 @@ var capturar = {
 		this.apellido = $("#apell").val()
 	},
 	telCapture() {
-		this.nombre = $("#nomb").val()
+		this.tel = $("#tel").val()
 	},
 	telDCapture() {
 		this.nombre = $("#nomb").val()
@@ -67,7 +67,7 @@ var validar = {
 			this.funcParrafos()
 		} else if(capturar.nombre.length >= 10){
 			alert("Mandarina")
-			
+			objNomb.addClass("largo");
 			pNomb.addClass("plargo").hide();
 			this.statusNombre = 0400;
 			this.funcParrafos()
@@ -75,7 +75,9 @@ var validar = {
 			this.statusNombre = 1988;
 		}
 		if (this.statusNombre === 1988) {
-			objNomb.addClass("correct")
+			objNomb.addClass("correct");
+			objNomb.removeClass("corto").removeClass("largo")
+		.removeClass("vacio").removeClass("inex")
 		} else if(this.statusNombre === 0401){
 			objNomb.removeClass("correct").removeClass("corto").removeClass("largo")
 		} else if(this.statusNombre === 0400){
@@ -88,7 +90,7 @@ var validar = {
 		var objApell = $("#apell");
 		this.restartClass();
 		var pApell = $("#papellido");
-		var expresionApellido = /^[A-Za-z\u00C0-\u017F]*$/
+		var expresionApellido = /^[A-Za-z\u00C0-\u017F]*$/;
 		if (capturar.apellido==="") {
 			alert("Hola");
 			objApell.addClass("vacio");
@@ -102,14 +104,14 @@ var validar = {
 			this.statusApellido = 0400;
 			this.funcParrafos()
 		}else if(!expresionApellido.test(capturar.apellido)){
-			alert("narnia")
+			alert("narnia");
 			objApell.addClass("inex");
 			pApell.addClass("pinex").hide();
 			this.statusApellido = 0401;
 			this.funcParrafos()
 		} else if(capturar.apellido.length >= 10){
-			alert("Mandarina")
-			
+			alert("Mandarina");
+			objApell.addClass("largo");
 			pApell.addClass("plargo").hide();
 			this.statusApellido = 0400;
 			this.funcParrafos()
@@ -117,7 +119,9 @@ var validar = {
 			this.statusApellido = 1988;
 		};
 		if (this.statusApellido === 1988) {
-			objApell.addClass("correct")
+			objApell.addClass("correct");
+			objApell.removeClass("corto").removeClass("largo")
+		.removeClass("vacio").removeClass("inex")
 		} else if(this.statusApellido === 0401){
 			objApell.removeClass("correct").removeClass("corto").removeClass("largo")
 		} else if(this.statusApellido === 0400){
@@ -130,28 +134,28 @@ var validar = {
 		var objTel = $("#tel");
 		this.restartClass();
 		var pTel = $("#ptelefono");
-		var expresionTelefono = /^[0-9]*$/
+		var expresionTelefono = /^[0-9\+\-]*$/;
 		if (capturar.tel==="") {
 			alert("Hola");
 			objTel.addClass("vacio");
 			pTel.addClass("pvacio").hide();
 			this.statusTelefono = 0401;
 			this.funcParrafos()
-		} else if(capturar.tel.length <= 2){
+		} else if(capturar.tel.length <= 6){
 			alert("crack, maquina");
 			objTel.addClass("corto");
 			pTel.addClass("pcorto").hide();
 			this.statusTelefono = 0400;
 			this.funcParrafos()
 		}else if(!expresionTelefono.test(capturar.tel)){
-			alert("narnia")
+			alert("narnia");
 			objTel.addClass("inex");
 			pTel.addClass("pinex").hide();
 			this.statusTelefono = 0401;
 			this.funcParrafos()
-		} else if(capturar.tel.length >= 10){
-			alert("Mandarina")
-			
+		} else if(capturar.tel.length >= 19){
+			alert("Mandarina");
+			objTel.addClass("largo");
 			pTel.addClass("plargo").hide();
 			this.statusTelefono = 0400;
 			this.funcParrafos()
@@ -159,12 +163,56 @@ var validar = {
 			this.statusTelefono = 1988;
 		};
 		if (this.statusTelefono === 1988) {
-			objTel.addClass("correct")
+			objTel.addClass("correct");
+			objTel.removeClass("corto").removeClass("largo")
+		.removeClass("vacio").removeClass("inex")
 		} else if(this.statusTelefono === 0401){
 			objTel.removeClass("correct").removeClass("corto").removeClass("largo")
 		} else if(this.statusTelefono === 0400){
 			objTel.removeClass("correct").removeClass("vacio").removeClass("inex") }
-
+	},
+	statusTelefonoDos : null,
+	valTelefono() {
+		capturar.telCapture();
+		var objTel = $("#tel");
+		this.restartClass();
+		var pTel = $("#ptelefono");
+		var expresionTelefono = /^[0-9\+\-]*$/;
+		if (capturar.tel==="") {
+			alert("Hola");
+			objTel.addClass("vacio");
+			pTel.addClass("pvacio").hide();
+			this.statusTelefono = 0401;
+			this.funcParrafos()
+		} else if(capturar.tel.length <= 6){
+			alert("crack, maquina");
+			objTel.addClass("corto");
+			pTel.addClass("pcorto").hide();
+			this.statusTelefono = 0400;
+			this.funcParrafos()
+		}else if(!expresionTelefono.test(capturar.tel)){
+			alert("narnia");
+			objTel.addClass("inex");
+			pTel.addClass("pinex").hide();
+			this.statusTelefono = 0401;
+			this.funcParrafos()
+		} else if(capturar.tel.length >= 19){
+			alert("Mandarina");
+			objTel.addClass("largo");
+			pTel.addClass("plargo").hide();
+			this.statusTelefono = 0400;
+			this.funcParrafos()
+		} else {
+			this.statusTelefono = 1988;
+		};
+		if (this.statusTelefono === 1988) {
+			objTel.addClass("correct");
+			objTel.removeClass("corto").removeClass("largo")
+		.removeClass("vacio").removeClass("inex")
+		} else if(this.statusTelefono === 0401){
+			objTel.removeClass("correct").removeClass("corto").removeClass("largo")
+		} else if(this.statusTelefono === 0400){
+			objTel.removeClass("correct").removeClass("vacio").removeClass("inex") }
 	},
 };
 
