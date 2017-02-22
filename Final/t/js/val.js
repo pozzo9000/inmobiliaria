@@ -14,14 +14,14 @@ var capturar = {
 	telCapture() {
 		this.tel = $("#tel").val()
 	},
-	telDCapture() {
-		this.nombre = $("#nomb").val()
+	telDCaptureDos() {
+		this.telDos = $("#teldos").val()
 	},
 	mailCapture() {
-		this.nombre = $("#nomb").val()
+		this.mail = $("#correo").val()
 	},
-	mailDCapture() {
-		this.nombre = $("#nomb").val()
+	mailDCaptureDos() {
+		this.mailDos = $("#correodos").val()
 	}
 };
 var validar = {
@@ -35,9 +35,9 @@ var validar = {
 	restartClass() {
 		var sectores = $(".inputcl");
 		var parrafos = $(".pstatus");
-		parrafos.slideUp(500, function(){
-			$().empty()
-		});
+		// if () {
+
+		// }
 		parrafos.removeClass("pvacio").removeClass("pcorto").removeClass("plargo").removeClass("pinex")
 	},
 	statusNombre : 0400,
@@ -172,47 +172,133 @@ var validar = {
 			objTel.removeClass("correct").removeClass("vacio").removeClass("inex") }
 	},
 	statusTelefonoDos : null,
-	valTelefono() {
-		capturar.telCapture();
-		var objTel = $("#tel");
+	valTelefonoDos() {
+		capturar.telDCaptureDos();
+		var objTelDos = $("#teldos");
 		this.restartClass();
-		var pTel = $("#ptelefono");
+		var pTelDos = $("#ptelefono2");
 		var expresionTelefono = /^[0-9\+\-]*$/;
 		if (capturar.tel==="") {
 			alert("Hola");
-			objTel.addClass("vacio");
-			pTel.addClass("pvacio").hide();
+			objTelDos.addClass("vacio");
+			pTelDos.addClass("pvacio").hide();
 			this.statusTelefono = 0401;
 			this.funcParrafos()
 		} else if(capturar.tel.length <= 6){
 			alert("crack, maquina");
-			objTel.addClass("corto");
-			pTel.addClass("pcorto").hide();
+			objTelDos.addClass("corto");
+			pTelDos.addClass("pcorto").hide();
 			this.statusTelefono = 0400;
 			this.funcParrafos()
 		}else if(!expresionTelefono.test(capturar.tel)){
 			alert("narnia");
-			objTel.addClass("inex");
-			pTel.addClass("pinex").hide();
+			objTelDos.addClass("inex");
+			pTelDos.addClass("pinex").hide();
 			this.statusTelefono = 0401;
 			this.funcParrafos()
 		} else if(capturar.tel.length >= 19){
 			alert("Mandarina");
-			objTel.addClass("largo");
-			pTel.addClass("plargo").hide();
+			objTelDos.addClass("largo");
+			pTelDos.addClass("plargo").hide();
 			this.statusTelefono = 0400;
 			this.funcParrafos()
 		} else {
 			this.statusTelefono = 1988;
 		};
 		if (this.statusTelefono === 1988) {
-			objTel.addClass("correct");
-			objTel.removeClass("corto").removeClass("largo")
+			objTelDos.addClass("correct");
+			objTelDos.removeClass("corto").removeClass("largo")
 		.removeClass("vacio").removeClass("inex")
 		} else if(this.statusTelefono === 0401){
-			objTel.removeClass("correct").removeClass("corto").removeClass("largo")
+			objTelDos.removeClass("correct").removeClass("corto").removeClass("largo")
 		} else if(this.statusTelefono === 0400){
-			objTel.removeClass("correct").removeClass("vacio").removeClass("inex") }
+			objTelDos.removeClass("correct").removeClass("vacio").removeClass("inex") }
+	},
+	statusTelMail : 0400,
+	valMail() {
+		capturar.mailCapture();
+		var objMail = $("#correo");
+		this.restartClass();
+		var pMail = $("#pmail");
+		var expresionMail =/\w+@\w+\.+[a-z]/;
+		if (capturar.mail==="") {
+			alert("Hola");
+			objMail.addClass("vacio");
+			pMail.addClass("pvacio").hide();
+			this.statusMail = 0401;
+			this.funcParrafos()
+		}else if(!expresionMail.test(capturar.mail)){
+			alert("narnia");
+			objMail.addClass("inex");
+			pMail.addClass("pinex").hide();
+			this.statusMail = 0401;
+			this.funcParrafos()
+		} else if(capturar.mail.length <= 6){
+			alert("crack, maquina");
+			objMail.addClass("corto");
+			pMail.addClass("pcorto").hide();
+			this.statusMail = 0400;
+			this.funcParrafos()
+		} else if(capturar.mail.length >= 25){
+			alert("Mandarina");
+			objMail.addClass("largo");
+			pMail.addClass("plargo").hide();
+			this.statusMail = 0400;
+			this.funcParrafos()
+		} else {
+			this.statusMail = 1988;
+		};
+		if (this.statusMail === 1988) {
+			objMail.addClass("correct");
+			objMail.removeClass("corto").removeClass("largo")
+		.removeClass("vacio").removeClass("inex")
+		} else if(this.statusMail === 0401){
+			objMail.removeClass("correct").removeClass("corto").removeClass("largo")
+		} else if(this.statusMail === 0400){
+			objMail.removeClass("correct").removeClass("vacio").removeClass("inex") }
+	},
+	statusTelMailDos : null,
+	valMailDos() {
+		capturar.mailDCaptureDos();
+		var objMailDos = $("#correodos");
+		this.restartClass();
+		var pMailDos = $("#pmail2");
+		var expresionMailDos =/\w+@\w+\.+[a-z]/;
+		if (capturar.mailDos==="") {
+			alert("Hola");
+			objMailDos.addClass("vacio");
+			pMailDos.addClass("pvacio").hide();
+			this.statusMailDos = 0401;
+			this.funcParrafos()
+		}else if(!expresionMailDos.test(capturar.mailDos)){
+			alert("narnia");
+			objMailDos.addClass("inex");
+			pMailDos.addClass("pinex").hide();
+			this.statusMailDos = 0401;
+			this.funcParrafos()
+		} else if(capturar.mailDos.length <= 6){
+			alert("crack, maquina");
+			objMailDos.addClass("corto");
+			pMailDos.addClass("pcorto").hide();
+			this.statusMailDos = 0400;
+			this.funcParrafos()
+		} else if(capturar.mailDos.length >= 25){
+			alert("Mandarina");
+			objMailDos.addClass("largo");
+			pMailDos.addClass("plargo").hide();
+			this.statusMailDos = 0400;
+			this.funcParrafos()
+		} else {
+			this.statusMailDos = 1988;
+		};
+		if (this.statusMailDos === 1988) {
+			objMailDos.addClass("correct");
+			objMailDos.removeClass("corto").removeClass("largo")
+		.removeClass("vacio").removeClass("inex")
+		} else if(this.statusMailDos === 0401){
+			objMailDos.removeClass("correct").removeClass("corto").removeClass("largo")
+		} else if(this.statusMailDos === 0400){
+			objMailDos.removeClass("correct").removeClass("vacio").removeClass("inex") }
 	},
 };
 
@@ -220,4 +306,8 @@ var validar = {
 function checkear() {
 	alert("No hay patos en angola (mentira)");
 	return false
-}
+};
+var parrafos = $(".pstatus");
+parrafos.slideUp(500, function(){
+			$().empty()
+});
