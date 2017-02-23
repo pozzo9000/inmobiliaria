@@ -32,7 +32,7 @@
                    	<h1>Datos Personales</h1>
                     <div class="contentas">
                         <div class="sectiontas sectiontas-1" id="divnombre">
-                            <input class="inputcl" type="text" id="nomb" placeholder="Nombre" onblur="return  validar.valNombre();">
+                            <input class="inputcl" type="text" id="nomb" placeholder="Nombre" onblur="" autocomplete="off">
                             <p class="pstatus" id="pnombre"></p>
                         </div>
                         <div class="sectiontas sectiontas-1" id="divapellido">
@@ -60,10 +60,10 @@
                 </div>
                 <div class="cinc">
                 	<h1>Datos de la propiedad</h1>
-                    <div class="contentas"
+                    <div class="contentas">
                         <div class="sectiontas">
                             <div id="select">
-                                <select id="" onblur="">
+                                <select id="selector" onclick = "return validar.valSelector();">
                                     <option value="Departamento" id="dep">Departamento</option>
                                     <option value="Casa" id="cas">Casa</option>
                                     <option value="Departamento tipo casa" id="deptipcas">Departamento tipo casa</option>
@@ -86,7 +86,7 @@
                                     <input type="radio" name="ventalq" value="Venta" id="ventar" class="inravenal">
                                     <label for="ventar" id="vent">Venta</label>
                                     <input type="radio" name="ventalq" value="Alquiler" id="alquilerr" class="inravenal">
-                                    <label for="alquilerr">Alquiler</label>
+                                    <label for="alquilerr" id="alq">Alquiler</label>
                                 </div>
                                 <p id="pvenalq">Hola soy un lindo parrafito</p>
                             </div>

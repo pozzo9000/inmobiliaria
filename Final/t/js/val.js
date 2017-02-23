@@ -1,3 +1,14 @@
+$("#alquilerr").click(function (){$("#datzoncalnum").slideUp(5000);});
+$(iniciar());
+$("#nomb").on('keyup', function (){validar.valNombre()});
+
+function iniciar(){
+	var parrafos = $(".pstatus");
+	parrafos.hide().empty();
+	$("#divtelefonodos").hide("");
+	$("#divmail2").hide();
+};
+
 var capturar = {
 	nombre: "este campo está vacio",
 	apellido: "este campo está vacio",
@@ -5,6 +16,7 @@ var capturar = {
 	telDos: "este campo está vacio",
 	mail: "este campo está vacio",
 	mailDos: "este campo está vacio",
+	selector: "Departamento por defouult",
 	nomCapture() {
 		this.nombre = $("#nomb").val()
 	},
@@ -22,23 +34,24 @@ var capturar = {
 	},
 	mailDCaptureDos() {
 		this.mailDos = $("#correodos").val()
+	},
+	selectorCapture(){
+		this.selector = $("#selector").val()
 	}
 };
+
 var validar = {
 	funcParrafos() {
 		$(".pvacio").text("•Este contenedor está vacío").slideDown(500);
 		$(".pinex").text("•Formato erróneo").slideDown(500);
 		$(".pcorto").text("•Este texto es muy corto").slideDown(500);
 		$(".plargo").text("•Se excedió el máximo de caracteres").slideDown(500);
-
+		$(".pcorrecto").empty();
 	},
 	restartClass() {
 		var sectores = $(".inputcl");
 		var parrafos = $(".pstatus");
-		// if () {
-
-		// }
-		parrafos.removeClass("pvacio").removeClass("pcorto").removeClass("plargo").removeClass("pinex")
+		parrafos.removeClass("pvacio").removeClass("pcorto").removeClass("plargo").removeClass("pinex").removeClass("pcorrecto")
 	},
 	statusNombre : 0400,
 	valNombre() {
@@ -73,6 +86,7 @@ var validar = {
 			this.funcParrafos()
 		} else {
 			this.statusNombre = 1988;
+			pNomb.addClass("pcorrecto").hide();
 		}
 		if (this.statusNombre === 1988) {
 			objNomb.addClass("correct");
@@ -161,6 +175,7 @@ var validar = {
 			this.funcParrafos()
 		} else {
 			this.statusTelefono = 1988;
+			$("#divtelefonodos").slideDown()
 		};
 		if (this.statusTelefono === 1988) {
 			objTel.addClass("correct");
@@ -171,7 +186,7 @@ var validar = {
 		} else if(this.statusTelefono === 0400){
 			objTel.removeClass("correct").removeClass("vacio").removeClass("inex") }
 	},
-	statusTelefonoDos : null,
+	statusTelefonoDos : 1988,
 	valTelefonoDos() {
 		capturar.telDCaptureDos();
 		var objTelDos = $("#teldos");
@@ -180,9 +195,7 @@ var validar = {
 		var expresionTelefono = /^[0-9\+\-]*$/;
 		if (capturar.tel==="") {
 			alert("Hola");
-			objTelDos.addClass("vacio");
-			pTelDos.addClass("pvacio").hide();
-			this.statusTelefono = 0401;
+			this.statusTelefono = 1988;
 			this.funcParrafos()
 		} else if(capturar.tel.length <= 6){
 			alert("crack, maquina");
@@ -247,6 +260,7 @@ var validar = {
 			this.funcParrafos()
 		} else {
 			this.statusMail = 1988;
+			$("#divmail2").slideDown()
 		};
 		if (this.statusMail === 1988) {
 			objMail.addClass("correct");
@@ -257,7 +271,7 @@ var validar = {
 		} else if(this.statusMail === 0400){
 			objMail.removeClass("correct").removeClass("vacio").removeClass("inex") }
 	},
-	statusTelMailDos : null,
+	statusTelMailDos : 1988,
 	valMailDos() {
 		capturar.mailDCaptureDos();
 		var objMailDos = $("#correodos");
@@ -266,9 +280,7 @@ var validar = {
 		var expresionMailDos =/\w+@\w+\.+[a-z]/;
 		if (capturar.mailDos==="") {
 			alert("Hola");
-			objMailDos.addClass("vacio");
-			pMailDos.addClass("pvacio").hide();
-			this.statusMailDos = 0401;
+			this.statusMailDos = 1988;
 			this.funcParrafos()
 		}else if(!expresionMailDos.test(capturar.mailDos)){
 			alert("narnia");
@@ -300,6 +312,20 @@ var validar = {
 		} else if(this.statusMailDos === 0400){
 			objMailDos.removeClass("correct").removeClass("vacio").removeClass("inex") }
 	},
+	//SEGUNDAPARTE------------------------------------------------------
+	valSelector() {
+		capturar.selectorCapture();
+		console.log(capturar.selector);
+		//piso y lado
+		if (capturar.selector === "Departamento"  || capturar.selector === "Departamento tipo casa" || capturar.selector === "Oficina") {
+			console.log("parpito es real");
+			$("#pisolado").show();
+		} else {
+			$("#pisolado").hide();
+		}
+	}
+	// valVenAlqu() {
+	// }
 };
 
 // ------------------------------------------------------------------------------------------------------------
@@ -307,7 +333,3 @@ function checkear() {
 	alert("No hay patos en angola (mentira)");
 	return false
 };
-var parrafos = $(".pstatus");
-parrafos.slideUp(500, function(){
-			$().empty()
-});
