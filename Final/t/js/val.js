@@ -1,12 +1,26 @@
-$("#alquilerr").click(function (){$("#datzoncalnum").slideUp(5000);});
 $(iniciar());
-$("#nomb").on('keyup', function (){validar.valNombre()});
 
 function iniciar(){
 	var parrafos = $(".pstatus");
 	parrafos.hide().empty();
 	$("#divtelefonodos").hide("");
 	$("#divmail2").hide();
+	$("#datzoncalnum").hide();
+	$("#aptitud").hide();
+	$("#alquilerr").click(function (){
+		validar.valSelector();
+		$("#datzoncalnum").slideDown(500);
+		validar.valVenAlqu()
+	});
+		$("#ventar").click(function (){
+		validar.valSelector();
+		$("#datzoncalnum").slideDown(500);
+		validar.valVenAlqu()
+	});
+		$("#nomb").on('keyup', function (){validar.valNombre()});
+		$("#zona").on('keyup', function (){validar.valZona()});
+		$("#calle").on('keyup', function(){validar.valCalle()});
+		$("#numero").on('keyup', function() {validar.valAltura()})
 };
 
 var capturar = {
@@ -17,6 +31,13 @@ var capturar = {
 	mail: "este campo está vacio",
 	mailDos: "este campo está vacio",
 	selector: "Departamento por defouult",
+	ventAlqui: "Este campo está vacio",
+	zona:"este campo está vacio",
+	calle:"este campo está vacio",
+	altura:"este campo está vacio",
+	piso:"este campo está vacio",
+	lado:"este campo está vacio",
+	apttoProf:"este campo está vacio",
 	nomCapture() {
 		this.nombre = $("#nomb").val()
 	},
@@ -37,7 +58,32 @@ var capturar = {
 	},
 	selectorCapture(){
 		this.selector = $("#selector").val()
-	}
+	},
+	ventalquiCapture() {
+		if ($("#alquilerr").is(':checked')) {
+			this.ventAlqui = $("#alquilerr").val();
+		} else if ($("#ventar").is(':checked')) {
+			this.ventAlqui = $ ("#ventar").val()
+		}
+	},
+	zonaCapture() {
+		this.zona  = $("#zona").val()
+	},
+	calleCapture() {
+		this.calle = $("#calle").val()
+	},
+	alturaCapture() {
+		this.altura = $("#numero").val()
+	},
+	pisoCapture() {
+		this.piso = $("#piso").val()
+	},
+	ladoCapture() {
+
+	},
+	apttoProfCapture() {
+
+	},	
 };
 
 var validar = {
@@ -59,27 +105,23 @@ var validar = {
 		var objNomb = $("#nomb");
 		this.restartClass();
 		var pNomb = $("#pnombre");
-		var expresionNombre = /^[A-Za-z\u00C0-\u017F]*$/
+		var expresionNombre = /^[A-Za-z\u00C0-\u017F]*$/;
 		if (capturar.nombre==="") {
-			alert("Hola");
 			objNomb.addClass("vacio");
 			pNomb.addClass("pvacio").hide();
 			this.statusNombre = 0401;
 			this.funcParrafos()
-		} else if(capturar.nombre.length <= 2){
-			alert("crack, maquina");
-			objNomb.addClass("corto");
-			pNomb.addClass("pcorto").hide();
-			this.statusNombre = 0400;
-			this.funcParrafos()
 		}else if(!expresionNombre.test(capturar.nombre)){
-			alert("narnia")
 			objNomb.addClass("inex");
 			pNomb.addClass("pinex").hide();
 			this.statusNombre = 0401;
 			this.funcParrafos()
+		} else if(capturar.nombre.length <= 2){
+			objNomb.addClass("corto");
+			pNomb.addClass("pcorto").hide();
+			this.statusNombre = 0400;
+			this.funcParrafos()
 		} else if(capturar.nombre.length >= 10){
-			alert("Mandarina")
 			objNomb.addClass("largo");
 			pNomb.addClass("plargo").hide();
 			this.statusNombre = 0400;
@@ -320,12 +362,66 @@ var validar = {
 		if (capturar.selector === "Departamento"  || capturar.selector === "Departamento tipo casa" || capturar.selector === "Oficina") {
 			console.log("parpito es real");
 			$("#pisolado").show();
-		} else {
+			$("#aptitud").show();
+			$("#divcalle").css("width" , "30%");
+			} else {
 			$("#pisolado").hide();
+			$("#divcalle").css("width" , "54%");
+			$("#aptitud").hide();
+		};
+	},
+	valVenAlqu() {
+		capturar.ventalquiCapture();
+		console.log(capturar.ventAlqui);
+		if (capturar.ventAlqui === "Venta" ||  capturar.ventAlqui === "alquiler") {
+			$("#pvenalq").empty()
+		} else {
+			return null
 		}
+	},
+	valZona() {
+		capturar.zonaCapture();
+		var objZona = $("#zona");
+		var expresionZona =  /^[A-Za-z\u00C0-\u017F\ \.\-]*$/;
+		if ((!expresionZona.test(capturar.zona)) || capturar.zona === "") {
+			objZona.removeClass("correct");
+			objZona.addClass("inex");
+		} else {
+			objZona.addClass("correct");
+			objZona.removeClass("inex");
+		}
+	},
+	valCalle() {
+		capturar.calleCapture();
+		var objCalle = $("#calle");
+		var expresionCalle = /^[A-Za-z\u00C0-\u017F\ \.\-]*$/;
+		if ((!expresionCalle.test(capturar.calle)) || capturar.calle === "") {
+			objCalle.removeClass("correct");
+			objCalle.addClass("inex");
+		} else {
+			objCalle.addClass("correct");
+			objCalle.removeClass("inex");
+		}
+	},
+	valAltura() {
+		capturar.alturaCapture();
+		var objAltura = $("#numero");
+		var expresionAltura = /^[0-9]*$/;
+		if ((!expresionAltura.test(capturar.altura)) || capturar.altura ==="" || capturar.altura.length >= 5) {
+			objAltura.addClass("inex");
+			objAltura.removeClass("correct");
+		} else {
+			objAltura.addClass("correct");
+			objAltura.removeClass("inex");
+		}
+	},
+	valPiso() {
+		capturar.pisoCapture();
+		var objPiso = $("#piso");
+		var expresionPiso = /^[0-9\A\a\E\e]*$/;
+		if () {}
 	}
-	// valVenAlqu() {
-	// }
+
 };
 
 // ------------------------------------------------------------------------------------------------------------
