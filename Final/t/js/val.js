@@ -11,16 +11,30 @@ function iniciar(){
 		validar.valSelector();
 		$("#datzoncalnum").slideDown(500);
 		validar.valVenAlqu()
-	});
+		});
 		$("#ventar").click(function (){
 		validar.valSelector();
 		$("#datzoncalnum").slideDown(500);
 		validar.valVenAlqu()
 	});
-		$("#nomb").on('keyup', function (){validar.valNombre()});
-		$("#zona").on('keyup', function (){validar.valZona()});
-		$("#calle").on('keyup', function(){validar.valCalle()});
-		$("#numero").on('keyup', function() {validar.valAltura()})
+	$("#nomb").on('keyup', function (){validar.valNombre()});
+	$("#apell").on('keyup', function (){validar.valApellido()});
+	$("#tel").on('keyup', function (){validar.valTelefono()});
+	$("#teldos").on('keyup', function (){validar.valTelefonoDos()});
+	$("#correo").on('keyup', function (){validar.valMail()});
+	$("#correodos").on('keyup', function (){validar.valMailDos()});
+	$("#zona").on('keyup', function (){validar.valZona()});
+	$("#calle").on('keyup', function(){validar.valCalle()});
+	$("#numero").on('keyup', function() {validar.valAltura()});
+	$("#piso").on('keyup', function(){validar.valPiso()});
+	$("#lado").on('keyup', function(){validar.valLado()});
+	$("#apt").click(function (){
+			validar.valAptitud()
+			});
+			$("#napt").click(function (){
+			validar.valAptitud()
+	});
+	$().click(function(){checkear("#enviarr")})
 };
 
 var capturar = {
@@ -37,7 +51,7 @@ var capturar = {
 	altura:"este campo está vacio",
 	piso:"este campo está vacio",
 	lado:"este campo está vacio",
-	apttoProf:"este campo está vacio",
+	aptoProf:"este campo está vacio",
 	nomCapture() {
 		this.nombre = $("#nomb").val()
 	},
@@ -79,11 +93,15 @@ var capturar = {
 		this.piso = $("#piso").val()
 	},
 	ladoCapture() {
-
+		this.lado = $("#lado").val()
 	},
 	apttoProfCapture() {
-
-	},	
+		if ($("#apt").is(':checked')) {
+			this.aptoProf = $("#apt").val();
+		} else if ($("#napt").is(':checked')) {
+			this.aptoProf = $ ("#napt").val()
+		}
+	}
 };
 
 var validar = {
@@ -99,7 +117,7 @@ var validar = {
 		var parrafos = $(".pstatus");
 		parrafos.removeClass("pvacio").removeClass("pcorto").removeClass("plargo").removeClass("pinex").removeClass("pcorrecto")
 	},
-	statusNombre : 0400,
+	statusNombre : 4500,
 	valNombre() {
 		capturar.nomCapture();
 		var objNomb = $("#nomb");
@@ -140,7 +158,7 @@ var validar = {
 			objNomb.removeClass("correct").removeClass("vacio").removeClass("inex")
 		}
 	},
-	statusApellido : 0400,
+	statusApellido : 4500,
 	valApellido() {
 		capturar.apellCapture();
 		var objApell = $("#apell");
@@ -148,25 +166,21 @@ var validar = {
 		var pApell = $("#papellido");
 		var expresionApellido = /^[A-Za-z\u00C0-\u017F]*$/;
 		if (capturar.apellido==="") {
-			alert("Hola");
 			objApell.addClass("vacio");
 			pApell.addClass("pvacio").hide();
 			this.statusApellido = 0401;
 			this.funcParrafos()
 		} else if(capturar.apellido.length <= 2){
-			alert("crack, maquina");
 			objApell.addClass("corto");
 			pApell.addClass("pcorto").hide();
 			this.statusApellido = 0400;
 			this.funcParrafos()
 		}else if(!expresionApellido.test(capturar.apellido)){
-			alert("narnia");
 			objApell.addClass("inex");
 			pApell.addClass("pinex").hide();
 			this.statusApellido = 0401;
 			this.funcParrafos()
 		} else if(capturar.apellido.length >= 10){
-			alert("Mandarina");
 			objApell.addClass("largo");
 			pApell.addClass("plargo").hide();
 			this.statusApellido = 0400;
@@ -184,7 +198,7 @@ var validar = {
 			objApell.removeClass("correct").removeClass("vacio").removeClass("inex")
 		}
 	},
-	statusTelefono : 0400,
+	statusTelefono : 4500,
 	valTelefono() {
 		capturar.telCapture();
 		var objTel = $("#tel");
@@ -192,41 +206,40 @@ var validar = {
 		var pTel = $("#ptelefono");
 		var expresionTelefono = /^[0-9\+\-]*$/;
 		if (capturar.tel==="") {
-			alert("Hola");
 			objTel.addClass("vacio");
 			pTel.addClass("pvacio").hide();
 			this.statusTelefono = 0401;
 			this.funcParrafos()
 		} else if(capturar.tel.length <= 6){
-			alert("crack, maquina");
 			objTel.addClass("corto");
 			pTel.addClass("pcorto").hide();
 			this.statusTelefono = 0400;
 			this.funcParrafos()
 		}else if(!expresionTelefono.test(capturar.tel)){
-			alert("narnia");
 			objTel.addClass("inex");
 			pTel.addClass("pinex").hide();
 			this.statusTelefono = 0401;
 			this.funcParrafos()
 		} else if(capturar.tel.length >= 19){
-			alert("Mandarina");
 			objTel.addClass("largo");
 			pTel.addClass("plargo").hide();
 			this.statusTelefono = 0400;
 			this.funcParrafos()
 		} else {
-			this.statusTelefono = 1988;
-			$("#divtelefonodos").slideDown()
+			this.statusTelefono = 1988
 		};
 		if (this.statusTelefono === 1988) {
 			objTel.addClass("correct");
 			objTel.removeClass("corto").removeClass("largo")
+			$("#divtelefonodos").slideDown()
 		.removeClass("vacio").removeClass("inex")
 		} else if(this.statusTelefono === 0401){
-			objTel.removeClass("correct").removeClass("corto").removeClass("largo")
+			objTel.removeClass("correct").removeClass("corto").removeClass("largo");
+			$("#divtelefonodos").hide()
 		} else if(this.statusTelefono === 0400){
-			objTel.removeClass("correct").removeClass("vacio").removeClass("inex") }
+			objTel.removeClass("correct").removeClass("vacio").removeClass("inex");
+			$("#divtelefonodos").hide()
+		}
 	},
 	statusTelefonoDos : 1988,
 	valTelefonoDos() {
@@ -236,23 +249,19 @@ var validar = {
 		var pTelDos = $("#ptelefono2");
 		var expresionTelefono = /^[0-9\+\-]*$/;
 		if (capturar.tel==="") {
-			alert("Hola");
 			this.statusTelefono = 1988;
 			this.funcParrafos()
 		} else if(capturar.tel.length <= 6){
-			alert("crack, maquina");
 			objTelDos.addClass("corto");
 			pTelDos.addClass("pcorto").hide();
 			this.statusTelefono = 0400;
 			this.funcParrafos()
 		}else if(!expresionTelefono.test(capturar.tel)){
-			alert("narnia");
 			objTelDos.addClass("inex");
 			pTelDos.addClass("pinex").hide();
 			this.statusTelefono = 0401;
 			this.funcParrafos()
 		} else if(capturar.tel.length >= 19){
-			alert("Mandarina");
 			objTelDos.addClass("largo");
 			pTelDos.addClass("plargo").hide();
 			this.statusTelefono = 0400;
@@ -269,7 +278,7 @@ var validar = {
 		} else if(this.statusTelefono === 0400){
 			objTelDos.removeClass("correct").removeClass("vacio").removeClass("inex") }
 	},
-	statusTelMail : 0400,
+	statusTelMail : 4500,
 	valMail() {
 		capturar.mailCapture();
 		var objMail = $("#correo");
@@ -277,25 +286,21 @@ var validar = {
 		var pMail = $("#pmail");
 		var expresionMail =/\w+@\w+\.+[a-z]/;
 		if (capturar.mail==="") {
-			alert("Hola");
 			objMail.addClass("vacio");
 			pMail.addClass("pvacio").hide();
 			this.statusMail = 0401;
 			this.funcParrafos()
 		}else if(!expresionMail.test(capturar.mail)){
-			alert("narnia");
 			objMail.addClass("inex");
 			pMail.addClass("pinex").hide();
 			this.statusMail = 0401;
 			this.funcParrafos()
 		} else if(capturar.mail.length <= 6){
-			alert("crack, maquina");
 			objMail.addClass("corto");
 			pMail.addClass("pcorto").hide();
 			this.statusMail = 0400;
 			this.funcParrafos()
 		} else if(capturar.mail.length >= 25){
-			alert("Mandarina");
 			objMail.addClass("largo");
 			pMail.addClass("plargo").hide();
 			this.statusMail = 0400;
@@ -321,23 +326,19 @@ var validar = {
 		var pMailDos = $("#pmail2");
 		var expresionMailDos =/\w+@\w+\.+[a-z]/;
 		if (capturar.mailDos==="") {
-			alert("Hola");
 			this.statusMailDos = 1988;
 			this.funcParrafos()
 		}else if(!expresionMailDos.test(capturar.mailDos)){
-			alert("narnia");
 			objMailDos.addClass("inex");
 			pMailDos.addClass("pinex").hide();
 			this.statusMailDos = 0401;
 			this.funcParrafos()
 		} else if(capturar.mailDos.length <= 6){
-			alert("crack, maquina");
 			objMailDos.addClass("corto");
 			pMailDos.addClass("pcorto").hide();
 			this.statusMailDos = 0400;
 			this.funcParrafos()
 		} else if(capturar.mailDos.length >= 25){
-			alert("Mandarina");
 			objMailDos.addClass("largo");
 			pMailDos.addClass("plargo").hide();
 			this.statusMailDos = 0400;
@@ -364,12 +365,21 @@ var validar = {
 			$("#pisolado").show();
 			$("#aptitud").show();
 			$("#divcalle").css("width" , "30%");
+			statusPiso = 4500;
+			statusLado = 4500;
+			statusAptitud = 4500;
+			console.log(statusPiso)
 			} else {
 			$("#pisolado").hide();
 			$("#divcalle").css("width" , "54%");
 			$("#aptitud").hide();
+			statusPiso = 1988;
+			statusLado = 1988;
+			statusAptitud = 1988;
+			console.log(statusPiso)
 		};
 	},
+	statusVenalqqu:4500,
 	valVenAlqu() {
 		capturar.ventalquiCapture();
 		console.log(capturar.ventAlqui);
@@ -379,6 +389,7 @@ var validar = {
 			return null
 		}
 	},
+	statusZona:4500,
 	valZona() {
 		capturar.zonaCapture();
 		var objZona = $("#zona");
@@ -391,6 +402,7 @@ var validar = {
 			objZona.removeClass("inex");
 		}
 	},
+	statusCalle:4500,
 	valCalle() {
 		capturar.calleCapture();
 		var objCalle = $("#calle");
@@ -403,6 +415,7 @@ var validar = {
 			objCalle.removeClass("inex");
 		}
 	},
+	statusAltura:4500,
 	valAltura() {
 		capturar.alturaCapture();
 		var objAltura = $("#numero");
@@ -415,17 +428,53 @@ var validar = {
 			objAltura.removeClass("inex");
 		}
 	},
+	statusPiso:4500,
 	valPiso() {
 		capturar.pisoCapture();
 		var objPiso = $("#piso");
 		var expresionPiso = /^[0-9\A\a\E\e]*$/;
-		if () {}
+		if ((!expresionPiso.test(capturar.piso)) || capturar.piso ==="" || capturar.piso.length >= 3) {
+			objPiso.addClass("inex");
+			objPiso.removeClass("correct");
+		} else {
+			objPiso.addClass("correct");
+			objPiso.removeClass("inex");
+		}
+	},
+	statusLado:4500,
+	valLado() {
+		capturar.ladoCapture();
+		var objLado = $("#lado");
+		var expresionLado = /^[0-9\A-Z\a-z\1-9]*$/;
+		if ((!expresionLado.test(capturar.lado)) || capturar.lado ==="" || capturar.lado.length >= 3) {
+			objLado.addClass("inex");
+			objLado.removeClass("correct");
+		} else {
+			objLado.addClass("correct");
+			objLado.removeClass("inex");
+		}
+	},
+	statusAptitud:4500,
+	valAptitud() {
+		capturar.apttoProfCapture();
+		console.log(capturar.aptoProf);
+		if (capturar.aptoProf === "Venta" ||  capturar.aptoProf === "alquiler") {
+			$("#papt").empty()
+		} else {
+			return null
+		}
 	}
-
 };
 
 // ------------------------------------------------------------------------------------------------------------
 function checkear() {
-	alert("No hay patos en angola (mentira)");
+	alert("Patos de angola");
+	if (validar.statusNombre === 1988 && validar.statusApellido === 1988 && validar.statusTelefono === 1988 && validar.statusTelefonoDos === 1988 && validar.statusMail === 1988 && validar.statusMailDos === 1988 && validar.statusPiso === 1988 && validar.statusLado === 1988 && validar.statusAptitud === 1988) {
+		Alert("Complete");
+		return false;
+	} else {
+		Alert("incomplete");
+		return false;
+	};
 	return false
 };
