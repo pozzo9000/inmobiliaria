@@ -51,72 +51,74 @@ var capturar = {
 	piso:"este campo está vacio",
 	lado:"este campo está vacio",
 	aptoProf:"este campo está vacio",
-	nomCapture() {
-		this.nombre = $("#nomb").val()
-	},
-	apellCapture() {
-		this.apellido = $("#apell").val()
-	},
-	telCapture() {
-		this.tel = $("#tel").val()
-	},
-	telDCaptureDos() {
-		this.telDos = $("#teldos").val()
-	},
-	mailCapture() {
-		this.mail = $("#correo").val()
-	},
-	mailDCaptureDos() {
-		this.mailDos = $("#correodos").val()
-	},
-	selectorCapture(){
-		this.selector = $("#selector").val()
-	},
-	ventalquiCapture() {
-		if ($("#alquilerr").is(':checked')) {
-			this.ventAlqui = $("#alquilerr").val();
-		} else if ($("#ventar").is(':checked')) {
-			this.ventAlqui = $ ("#ventar").val()
+	//Functiones de capturar
+		nomCapture() {
+			this.nombre = $("#nomb").val()
+		},
+		apellCapture() {
+			this.apellido = $("#apell").val()
+		},
+		telCapture() {
+			this.tel = $("#tel").val()
+		},
+		telDCaptureDos() {
+			this.telDos = $("#teldos").val()
+		},
+		mailCapture() {
+			this.mail = $("#correo").val()
+		},
+		mailDCaptureDos() {
+			this.mailDos = $("#correodos").val()
+		},
+		selectorCapture(){
+			this.selector = $("#selector").val()
+		},
+		ventalquiCapture() {
+			if ($("#alquilerr").is(':checked')) {
+				this.ventAlqui = $("#alquilerr").val();
+			} else if ($("#ventar").is(':checked')) {
+				this.ventAlqui = $ ("#ventar").val()
+			}
+		},
+		zonaCapture() {
+			this.zona  = $("#zona").val()
+		},
+		calleCapture() {
+			this.calle = $("#calle").val()
+		},
+		alturaCapture() {
+			this.altura = $("#numero").val()
+		},
+		pisoCapture() {
+			this.piso = $("#piso").val()
+		},
+		ladoCapture() {
+			this.lado = $("#lado").val()
+		},
+		apttoProfCapture() {
+			if ($("#apt").is(':checked')) {
+				this.aptoProf = $("#apt").val();
+			} else if ($("#napt").is(':checked')) {
+				this.aptoProf = $ ("#napt").val()
+			}
+		},
+		valorizar() {
+			this.nomCapture();
+			this.apellCapture();
+			this.telCapture();
+			this.telDCaptureDos();
+			this.mailCapture();
+			this.mailDCaptureDos();
+			this.selectorCapture();
+			this.ventalquiCapture();
+			this.zonaCapture();
+			this.calleCapture();
+			this.alturaCapture();
+			this.pisoCapture();
+			this.ladoCapture();
+			this.apttoProfCapture()
 		}
-	},
-	zonaCapture() {
-		this.zona  = $("#zona").val()
-	},
-	calleCapture() {
-		this.calle = $("#calle").val()
-	},
-	alturaCapture() {
-		this.altura = $("#numero").val()
-	},
-	pisoCapture() {
-		this.piso = $("#piso").val()
-	},
-	ladoCapture() {
-		this.lado = $("#lado").val()
-	},
-	apttoProfCapture() {
-		if ($("#apt").is(':checked')) {
-			this.aptoProf = $("#apt").val();
-		} else if ($("#napt").is(':checked')) {
-			this.aptoProf = $ ("#napt").val()
-		}
-	},
-	valorizar() {
-		this.nomCapture();
-		this.apellCapture();
-		this.telCapture();
-		this.telDCaptureDos();
-		this.mailCapture();
-		this.mailDCaptureDos();
-		this.selectorCapture();
-		this.ventalquiCapture();
-		this.zonaCapture();
-		this.calleCapture();
-		this.alturaCapture();
-		this.pisoCapture();
-		this.ladoCapture();
-		this.apttoProfCapture()
-	}
+	//
 };
 
 var validar = {
@@ -384,28 +386,25 @@ var validar = {
 			$("#pisolado").show();
 			$("#aptitud").show();
 			$("#divcalle").css("width" , "30%");
-			statusPiso = 4500;
-			statusLado = 4500;
-			statusAptitud = 4500
 			} else {
 			$("#pisolado").hide();
 			$("#divcalle").css("width" , "54%");
 			$("#aptitud").hide();
-			statusPiso = 1988;
-			statusLado = 1988;
-			statusAptitud = 1988
+			this.statusPiso = 1988;
+			this.statusLado = 1988;
+			this.statusAptitud = 1988
 		};
 	},
 	statusVenalqqu:4500,
 	valVenAlqu() {
 		capturar.ventalquiCapture();
 		console.log(capturar.ventAlqui);
-		if (capturar.ventAlqui === "Venta" ||  capturar.ventAlqui === "alquiler") {
+		if (capturar.ventAlqui === "Venta" ||  capturar.ventAlqui === "Alquiler") {
 			$("#pvenalq").empty();
 			this.statusVenalqqu = 1988
 			console.log(this.statusVenalqqu)
 		} else {
-			return null
+			this.statusVenalqqu = 4500
 		}
 	},
 	statusZona:4500,
@@ -461,37 +460,45 @@ var validar = {
 		capturar.pisoCapture();
 		var objPiso = $("#piso");
 		var expresionPiso = /^[0-9\A\a\E\e]*$/;
-		if ((!expresionPiso.test(capturar.piso)) || capturar.piso ==="" || capturar.piso.length >= 3) {
-			objPiso.addClass("inex");
-			objPiso.removeClass("correct");
-			this.statusPiso = 4500
+		if (capturar.selector === "Departamento"  || capturar.selector === "Departamento tipo casa" || capturar.selector === "Oficina") {
+			if ((!expresionPiso.test(capturar.piso)) || capturar.piso ==="" || capturar.piso.length >= 3) {
+				objPiso.addClass("inex");
+				objPiso.removeClass("correct");
+				this.statusPiso = 4500
+			} else {
+				objPiso.addClass("correct");
+				objPiso.removeClass("inex");
+				this.statusPiso = 1988;
+				console.log(this.statusPiso)
+			}
 		} else {
-			objPiso.addClass("correct");
-			objPiso.removeClass("inex");
-			this.statusPiso = 1988;
-			console.log(this.statusPiso)
+			this.statusPiso = 1988
 		}
 	},
 	statusLado:4500,
 	valLado() {
 		capturar.ladoCapture();
 		var objLado = $("#lado");
-		var expresionLado = /^[0-9\A-Z\a-z\1-9]*$/;
-		if ((!expresionLado.test(capturar.lado)) || capturar.lado ==="" || capturar.lado.length >= 3) {
-			objLado.addClass("inex");
-			objLado.removeClass("correct");
-			this.statusLado = 4500
+		var expresionLado = /^[A-Z\a-z\1-9]*$/;
+		if (capturar.selector === "Departamento"  || capturar.selector === "Departamento tipo casa" || capturar.selector === "Oficina") {
+			if ((!expresionLado.test(capturar.lado)) || capturar.lado ==="" || capturar.lado.length >= 3) {
+				objLado.addClass("inex");
+				objLado.removeClass("correct");
+				this.statusLado = 4500
+			} else {
+				objLado.addClass("correct");
+				objLado.removeClass("inex");
+				this.statusLado = 1988;
+				console.log(this.statusLado)
+			}
 		} else {
-			objLado.addClass("correct");
-			objLado.removeClass("inex");
-			this.statusLado = 1988;
-			console.log(this.statusLado)
+			this.statusLado = 1988
 		}
 	},
 	statusAptitud:4500,
 	valAptitud() {
 		capturar.apttoProfCapture();
-		if (capturar.aptoProf === "Venta" ||  capturar.aptoProf === "alquiler") {
+		if (capturar.aptoProf === "Apto profesional" ||  capturar.aptoProf === "No apto profesional") {
 			this.statusAptitud = 1988;
 			$("#papt").empty();
 			console.log(this.statusAptitud)
@@ -521,16 +528,37 @@ var SegundoNivel = {
 	valorSegundoNivel: false,
 	funcSegundoNivel (){
 		validar.validarTodo();
-		if (validar.statusNombre === 1988 && validar.statusApellido === 1988 && validar.statusTelefono === 1988 && validar.statusTelefonoDos === 1988 && validar.statusMail === 1988 && validar.statusMailDos === 1988 && validar.statusPiso === 1988 && validar.statusLado === 1988 && validar.statusAptitud === 1988) {
+		if (validar.statusNombre === 1988 && validar.statusApellido === 1988 && validar.statusTelefono === 1988 && validar.statusTelefonoDos === 1988 && validar.statusMail === 1988 && validar.statusMailDos === 1988 && validar.statusVenalqqu === 1988 && validar.statusZona === 1988 && validar.statusCalle === 1988 && validar.statusAltura ===  1988 && validar.statusPiso ===  1988  && validar.statusLado === 1988 && validar.statusAptitud === 1988) {
 			this.valorSegundoNivel = true
 		} else {
 			this.valorSegundoNivel = false
 		}
 	}
-}
+};
 // ------------------------------------------------------------------------------------------------------------
 function checkear() {
-	capturar.valorizar();
+	SegundoNivel.funcSegundoNivel();
+	alert("Nombre "+validar.statusNombre);
+		alert("apellido "+validar.statusApellido);
+		alert("Telefono "+validar.statusTelefono);
+		alert("Telefono dos "+validar.statusTelefonoDos);
+		alert("Mail "+validar.statusMail);
+		alert("Mail Dos "+validar.statusMailDos);
+		alert("VentAlquil "+validar.statusVenalqqu);
+		alert("Zona "+validar.statusZona);
+		alert("Calle "+validar.statusCalle);
+		alert("altura "+validar.statusAltura);
+		alert("Piso "+validar.statusPiso);
+		alert("Lado "+validar.statusLado);
+		alert("Aptitud "+validar.statusAptitud);
 	alert(SegundoNivel.valorSegundoNivel);
-	return SegundoNivel.valorSegundoNivel
+	$.ajax({
+		type:'post',
+		urL:'enviar.php',
+		data: ('Nombre='+capturar.nombre+'&Apellido='+capturar.apellido+'&Telefono='+capturar.tel+'&TelefonoDos='+capturar.telDos+'&Correo='+capturar.mail+'&CorreoDos='+mailDos+'&TipoDePropiedad='+capturar.selector+'&Para='+capturar.ventAlqui+'Zona='+capturar.zona+'&Calle='+capturar.calle+'&Altura='+capturar.altura+'&Piso='+capturar.piso+'&Lado='capturar.lado+'&Esta='+capturar.aptoProf),
+		success:function(respuesta){
+			alert("Hey mamma")
+		}
+	})
+	return false;
 };
