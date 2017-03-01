@@ -535,30 +535,19 @@ var SegundoNivel = {
 		}
 	}
 };
-// ------------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------
 function checkear() {
-	SegundoNivel.funcSegundoNivel();
-	alert("Nombre "+validar.statusNombre);
-		alert("apellido "+validar.statusApellido);
-		alert("Telefono "+validar.statusTelefono);
-		alert("Telefono dos "+validar.statusTelefonoDos);
-		alert("Mail "+validar.statusMail);
-		alert("Mail Dos "+validar.statusMailDos);
-		alert("VentAlquil "+validar.statusVenalqqu);
-		alert("Zona "+validar.statusZona);
-		alert("Calle "+validar.statusCalle);
-		alert("altura "+validar.statusAltura);
-		alert("Piso "+validar.statusPiso);
-		alert("Lado "+validar.statusLado);
-		alert("Aptitud "+validar.statusAptitud);
 	alert(SegundoNivel.valorSegundoNivel);
-	$.ajax({
-		type:'post',
-		urL:'enviar.php',
-		data: ('Nombre='+capturar.nombre+'&Apellido='+capturar.apellido+'&Telefono='+capturar.tel+'&TelefonoDos='+capturar.telDos+'&Correo='+capturar.mail+'&CorreoDos='+mailDos+'&TipoDePropiedad='+capturar.selector+'&Para='+capturar.ventAlqui+'Zona='+capturar.zona+'&Calle='+capturar.calle+'&Altura='+capturar.altura+'&Piso='+capturar.piso+'&Lado='capturar.lado+'&Esta='+capturar.aptoProf),
-		success:function(respuesta){
-			alert("Hey mamma")
-		}
-	})
+    if (SegundoNivel.valorSegundoNivel===true) {
+     	$.ajax ({
+			type: 'post',
+			url: 'enviar.php',
+			success: function(){
+				alert("Hola")
+			}
+		})
+		return false
+	} else{
 	return false;
+	}
 };
