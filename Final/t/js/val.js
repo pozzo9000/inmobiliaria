@@ -1,7 +1,9 @@
 $(iniciar());
 
 function iniciar(){
+	$("#cargando-tas").hide();
 	$("#correct").hide();
+	$("#incorrect").hide();
 	var parrafos = $(".pstatus");
 	parrafos.hide().empty();
 	$("#divtelefonodos").hide("");
@@ -553,6 +555,9 @@ var SegundoNivel = {
 // -----------------------------------------------------------------------------------------------------------
 function checkear() {
 	SegundoNivel.funcSegundoNivel();
+	$("#formulario-tas").hide();
+	$("#incorrect").hide();
+	$("#cargando-tas").fadeIn(100);
 	$("#formulario-tas").slideUp(500, function(){
 		if (SegundoNivel.valorSegundoNivel === true) {
 			$.ajax({
@@ -560,13 +565,16 @@ function checkear() {
 				url:"js/enviar-tas.php",
 				data: {nombre:capturar.nombre,apellido:capturar.apellido,telefono:capturar.tel,telefonodos:capturar.telDos,correo:capturar.mail,correodos:capturar.mailDos,tipodepropiedad:capturar.selector,ventaoalquiler:capturar.ventAlqui,zona:capturar.zona,calle:capturar.calle,altura:capturar.altura,piso:capturar.piso,lado:capturar.lado,apttoono:capturar.aptoProf,mensaje:capturar.mensaje},
 				success:function(){
-					alert("Hey mamma");
+					$("#cargando-tas").hide();
 					$("#correct").slideDown(500)
 				}
 			});
-	} else if(SegundoNivel.valorSegundoNivel === false) {
-		$("#formulario-tas").slideDown(500)
-	}
+		} else if(SegundoNivel.valorSegundoNivel === false) {
+			$("#cargando-tas").hide();
+			$("#incorrect").slideDown(500, function(){
+				$("#formulario-tas").delay(300).slideDown(500);
+			});
+		}
 	});
 	return false;
 	
