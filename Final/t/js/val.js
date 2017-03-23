@@ -47,10 +47,11 @@ var capturar = {
 	ventAlqui: "Este campo está vacio",
 	zona:"este campo está vacio",
 	calle:"este campo está vacio",
-	altura:"este campo está vacio",
-	piso:"este campo está vacio",
-	lado:"este campo está vacio",
-	aptoProf:"este campo está vacio",
+	altura:"Este campo está vacio",
+	piso:"---",
+	lado:"---",
+	aptoProf:"---",
+	mensaje: "---",
 	//Functiones de capturar
 		nomCapture() {
 			this.nombre = $("#nomb").val()
@@ -101,6 +102,9 @@ var capturar = {
 			} else if ($("#napt").is(':checked')) {
 				this.aptoProf = $ ("#napt").val()
 			}
+		},
+		mensajecapture() {
+			this.mensaje = $("#texto-mensaje").val()
 		},
 		valorizar() {
 			this.nomCapture();
@@ -229,15 +233,15 @@ var validar = {
 			pTel.addClass("pvacio").hide();
 			this.statusTelefono = 0401;
 			this.funcParrafos()
+		} else if(!expresionTelefono.test(capturar.tel)){
+			objTel.addClass("inex");
+			pTel.addClass("pinex").hide();
+			this.statusTelefono = 0401;
+			this.funcParrafos()
 		} else if(capturar.tel.length <= 6){
 			objTel.addClass("corto");
 			pTel.addClass("pcorto").hide();
 			this.statusTelefono = 0400;
-			this.funcParrafos()
-		}else if(!expresionTelefono.test(capturar.tel)){
-			objTel.addClass("inex");
-			pTel.addClass("pinex").hide();
-			this.statusTelefono = 0401;
 			this.funcParrafos()
 		} else if(capturar.tel.length >= 19){
 			objTel.addClass("largo");
@@ -267,33 +271,34 @@ var validar = {
 		var objTelDos = $("#teldos");
 		this.restartClass();
 		var pTelDos = $("#ptelefono2");
-		var expresionTelefono = /^[0-9\+\-]*$/;
-		if (capturar.tel==="") {
-			this.statusTelefono = 1988;
+		var expresionTelefonoDos = /^[0-9\+\-]*$/;
+		if (capturar.telDos==="") {
+			this.statusTelefonoDos = 1988;
+			capturar.telDos = "---";
 			this.funcParrafos()
-		} else if(capturar.tel.length <= 6){
-			objTelDos.addClass("corto");
-			pTelDos.addClass("pcorto").hide();
-			this.statusTelefono = 0400;
-			this.funcParrafos()
-		}else if(!expresionTelefono.test(capturar.tel)){
+		}  else if(!expresionTelefonoDos.test(capturar.tel)){
 			objTelDos.addClass("inex");
 			pTelDos.addClass("pinex").hide();
-			this.statusTelefono = 0401;
+			this.statusTelefonoDos = 0401;
 			this.funcParrafos()
-		} else if(capturar.tel.length >= 19){
+		} else if(capturar.telDos.length <= 6){
+			objTelDos.addClass("corto");
+			pTelDos.addClass("pcorto").hide();
+			this.statusTelefonoDos = 0400;
+			this.funcParrafos()
+		} else if(capturar.telDos.length >= 19){
 			objTelDos.addClass("largo");
 			pTelDos.addClass("plargo").hide();
-			this.statusTelefono = 0400;
+			this.statusTelefonoDos = 0400;
 			this.funcParrafos()
 		} else {
-			this.statusTelefono = 1988;
+			this.statusTelefonoDos = 1988;
 		};
-		if (this.statusTelefono === 1988) {
+		if (this.statusTelefonoDos === 1988) {
 			objTelDos.addClass("correct");
 			objTelDos.removeClass("corto").removeClass("largo")
 		.removeClass("vacio").removeClass("inex")
-		} else if(this.statusTelefono === 0401){
+		} else if(this.statusTelefonoDos === 0401){
 			objTelDos.removeClass("correct").removeClass("corto").removeClass("largo")
 		} else if(this.statusTelefono === 0400){
 			objTelDos.removeClass("correct").removeClass("vacio").removeClass("inex") }
@@ -348,6 +353,7 @@ var validar = {
 		var expresionMailDos =/\w+@\w+\.+[a-z]/;
 		if (capturar.mailDos==="") {
 			this.statusMailDos = 1988;
+			capturar.mailDos = "---";
 			this.funcParrafos()
 		}else if(!expresionMailDos.test(capturar.mailDos)){
 			objMailDos.addClass("inex");
@@ -390,6 +396,8 @@ var validar = {
 			$("#pisolado").hide();
 			$("#divcalle").css("width" , "54%");
 			$("#aptitud").hide();
+			capturar.piso = "---";
+			capturar.lado = "---";
 			this.statusPiso = 1988;
 			this.statusLado = 1988;
 			this.statusAptitud = 1988
@@ -472,6 +480,7 @@ var validar = {
 				console.log(this.statusPiso)
 			}
 		} else {
+			capturar.piso = "---";
 			this.statusPiso = 1988
 		}
 	},
@@ -492,6 +501,7 @@ var validar = {
 				console.log(this.statusLado)
 			}
 		} else {
+			capturar.lado = "---";
 			this.statusLado = 1988
 		}
 	},
@@ -506,6 +516,9 @@ var validar = {
 			return null
 			this.statusAptitud = 4500
 		}
+	},
+	valMensaje() {
+		capturar.mensajecapture();
 	},
 	validarTodo(){
 		this.valNombre();
@@ -522,6 +535,7 @@ var validar = {
 		this.valPiso();
 		this.valLado();
 		this.valAptitud();
+		this.valMensaje();
 	}
 };
 var SegundoNivel = {
@@ -538,27 +552,19 @@ var SegundoNivel = {
 // ------------------------------------------------------------------------------------------------------------
 function checkear() {
 	SegundoNivel.funcSegundoNivel();
-	alert("Nombre "+validar.statusNombre);
-		alert("apellido "+validar.statusApellido);
-		alert("Telefono "+validar.statusTelefono);
-		alert("Telefono dos "+validar.statusTelefonoDos);
-		alert("Mail "+validar.statusMail);
-		alert("Mail Dos "+validar.statusMailDos);
-		alert("VentAlquil "+validar.statusVenalqqu);
-		alert("Zona "+validar.statusZona);
-		alert("Calle "+validar.statusCalle);
-		alert("altura "+validar.statusAltura);
-		alert("Piso "+validar.statusPiso);
-		alert("Lado "+validar.statusLado);
-		alert("Aptitud "+validar.statusAptitud);
-	alert(SegundoNivel.valorSegundoNivel);
-	$.ajax({
-		type:'post',
-		urL:'enviar.php',
-		data: ('Nombre='+capturar.nombre+'&Apellido='+capturar.apellido+'&Telefono='+capturar.tel+'&TelefonoDos='+capturar.telDos+'&Correo='+capturar.mail+'&CorreoDos='+mailDos+'&TipoDePropiedad='+capturar.selector+'&Para='+capturar.ventAlqui+'Zona='+capturar.zona+'&Calle='+capturar.calle+'&Altura='+capturar.altura+'&Piso='+capturar.piso+'&Lado='capturar.lado+'&Esta='+capturar.aptoProf),
-		success:function(respuesta){
-			alert("Hey mamma")
-		}
-	})
+	$("#formulario-tas").slideUp(500, function(){
+		if (SegundoNivel.valorSegundoNivel === true) {
+			$.ajax({
+				type:"post",
+				url:"js/enviar-tas.php",
+				data: {nombre:capturar.nombre,apellido:capturar.apellido,telefono:capturar.tel,telefonodos:capturar.telDos,correo:capturar.mail,correodos:capturar.mailDos,tipodepropiedad:capturar.selector,ventaoalquiler:capturar.ventAlqui,zona:capturar.zona,calle:capturar.calle,altura:capturar.altura,piso:capturar.piso,lado:capturar.lado,apttoono:capturar.aptoProf,mensaje:capturar.mensaje},
+				success:function(){
+					alert("Hey mamma")
+				}
+			});
+	} else if(SegundoNivel.valorSegundoNivel === false) {
+		$("#formulario-tas").slideDown(500)
+	}
+	});
 	return false;
 };
