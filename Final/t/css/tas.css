@@ -207,6 +207,8 @@ p.pstatus{
 }
 #cargando-tas{
     width: 100%;
+    display: table;
+    margin: auto;
 }
 #ok-tas{
     width: 100%;
