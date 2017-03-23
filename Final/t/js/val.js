@@ -1,6 +1,7 @@
 $(iniciar());
 
 function iniciar(){
+	$("#correct").hide();
 	var parrafos = $(".pstatus");
 	parrafos.hide().empty();
 	$("#divtelefonodos").hide("");
@@ -551,7 +552,6 @@ var SegundoNivel = {
 };
 // -----------------------------------------------------------------------------------------------------------
 function checkear() {
-<<<<<<< HEAD
 	SegundoNivel.funcSegundoNivel();
 	$("#formulario-tas").slideUp(500, function(){
 		if (SegundoNivel.valorSegundoNivel === true) {
@@ -560,26 +560,14 @@ function checkear() {
 				url:"js/enviar-tas.php",
 				data: {nombre:capturar.nombre,apellido:capturar.apellido,telefono:capturar.tel,telefonodos:capturar.telDos,correo:capturar.mail,correodos:capturar.mailDos,tipodepropiedad:capturar.selector,ventaoalquiler:capturar.ventAlqui,zona:capturar.zona,calle:capturar.calle,altura:capturar.altura,piso:capturar.piso,lado:capturar.lado,apttoono:capturar.aptoProf,mensaje:capturar.mensaje},
 				success:function(){
-					alert("Hey mamma")
+					alert("Hey mamma");
+					$("#correct").slideDown(500)
 				}
 			});
 	} else if(SegundoNivel.valorSegundoNivel === false) {
 		$("#formulario-tas").slideDown(500)
 	}
 	});
-=======
-	alert(SegundoNivel.valorSegundoNivel);
-    if (SegundoNivel.valorSegundoNivel===true) {
-     	$.ajax ({
-			type: 'post',
-			url: 'enviar.php',
-			success: function(){
-				alert("Hola")
-			}
-		})
-		return false
-	} else{
->>>>>>> 28b2c7eb8914ceed1429dd516fb5e4447318d4e1
 	return false;
 	}
 };
