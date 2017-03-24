@@ -43,7 +43,7 @@
                 </div>
             </div>
 			<div id="formulario-tas">
-                <form method="post" onsubmit="return checkear();">
+                <form method="post" id="form">
     			    <div class="cinc">
                        	<h1>Datos Personales</h1>
                         <div class="contentas">
@@ -53,23 +53,23 @@
                             </div>
                             <div class="sectiontas sectiontas-1" id="divapellido">
 
-                                <input autocomplete="off" class="inputcl" type="text" id="apell" placeholder="Apellido" onblur="return   validar.valApellido();">
+                                <input autocomplete="off" class="inputcl" type="text" id="apell" placeholder="Apellido">
                                 <p class="pstatus" id="papellido">Hola soy un lindo parrafito</p>
                             </div>
                             <div class="sectiontas sectiontas-1" id="divtelefono">
-                                <input autocomplete="off" class="inputcl" type="text" id="tel" placeholder="Teléfono" onblur="return  validar.valTelefono();">
+                                <input autocomplete="off" class="inputcl" type="text" id="tel" placeholder="Teléfono">
                                 <p class="pstatus" id="ptelefono">Hola soy un lindo parrafito</p>
                             </div>
                             <div class="sectiontas sectiontas-1" id="divtelefonodos">
-                                <input autocomplete="off" class="inputcl" type="text" id="teldos" placeholder="Teléfono 2 (opcional)" onblur="return  validar.valTelefonoDos();">
+                                <input autocomplete="off" class="inputcl" type="text" id="teldos" placeholder="Teléfono 2 (opcional)" >
                                 <p class="pstatus" id="ptelefono2">Hola soy un lindo parrafito</p>
                             </div>
                             <div class="sectiontas sectiontas-1" id="divmail">
-                                <input autocomplete="off" class="inputcl" type="text" id="correo" placeholder="Mail" onblur="return  validar.valMail();">
+                                <input autocomplete="off" class="inputcl" type="text" id="correo" placeholder="Mail">
                                 <p class="pstatus" id="pmail">Hola soy un lindo parrafito</p>
                             </div>
                             <div class="sectiontas sectiontas-1" id="divmail2">
-                                <input autocomplete="off" class="inputcl" type="text" id="correodos" placeholder="Mail 2 (opcional)" onblur="return  validar.valMailDos();">
+                                <input autocomplete="off" class="inputcl" type="text" id="correodos" placeholder="Mail 2 (opcional)" >
                                 <p class="pstatus" id="pmail2">Hola soy un lindo parrafito</p>
                             </div>
                         </div>
@@ -79,7 +79,7 @@
                         <div class="contentas">
                             <div class="sectiontas">
                                 <div id="select">
-                                    <select id="selector" onclick = "return validar.valSelector();">
+                                    <select id="selector">
                                         <option value="Departamento" id="dep">Departamento</option>
                                         <option value="Casa" id="cas">Casa</option>
                                         <option value="Departamento tipo casa" id="deptipcas">Departamento tipo casa</option>
@@ -139,7 +139,7 @@
                                 <p id="ptext">Hola soy un lindo parrafito</p>
                             </div>
                             <div class="sectiontas">
-                                <button type="submit" value="ENVIAR" id="enviarr">Enviar</button>
+                                <button type="button" value="ENVIAR" id="enviarr">Enviar</button>
                             </div>
                         </div>
                     </div>
