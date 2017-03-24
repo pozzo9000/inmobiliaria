@@ -209,6 +209,7 @@ p.pstatus{
     width: 100%;
     display: table;
     margin: auto;
+    display: none;
 }
 #ok-tas{
     width: 100%;

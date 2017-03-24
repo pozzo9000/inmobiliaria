@@ -1,9 +1,6 @@
 $(iniciar());
 
 function iniciar(){
-	$("#cargando-tas").hide();
-	$("#correct").hide();
-	$("#incorrect").hide();
 	var parrafos = $(".pstatus");
 	parrafos.hide().empty();
 	$("#divtelefonodos").hide("");
@@ -557,7 +554,7 @@ function checkear() {
 	SegundoNivel.funcSegundoNivel();
 	$("#formulario-tas").hide();
 	$("#incorrect").hide();
-	$("#cargando-tas").fadeIn(100);
+	$("#cargando-tas").show().fadeIn(100);
 	$("#formulario-tas").slideUp(500, function(){
 		if (SegundoNivel.valorSegundoNivel === true) {
 			$.ajax({
