@@ -131,6 +131,9 @@ select{
 #alquilerr:checked + label{
 	background-color: #2722AC;
 }
+#datzoncalnum, #divmail2, #divtelefonodos{
+    display: none;
+}
 #zona ,#calle {
 	width: 100%;
 	float: left;
@@ -202,6 +205,7 @@ p.pstatus{
     margin: 0.2rem;
     font-size: 1.2rem;
     font-weight: bold;
+    display: none;
 }
 #divtelefono2{
 }

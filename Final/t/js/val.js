@@ -551,11 +551,13 @@ var SegundoNivel = {
 };
 // -----------------------------------------------------------------------------------------------------------
 function checkear() {
+	$("#correct").slideUp(500);
+	$("#incorrect").slideUp(500);
 	SegundoNivel.funcSegundoNivel();
-	$("#formulario-tas").hide();
-	$("#incorrect").hide();
-	$("#cargando-tas").show().fadeIn(100);
 	$("#formulario-tas").slideUp(500, function(){
+		$("#correct").slideUp(500);
+		$("#incorrect").slideUp(500);
+		$("#cargando-tas").show().fadeIn(100);
 		if (SegundoNivel.valorSegundoNivel === true) {
 			$.ajax({
 				type:"post",
