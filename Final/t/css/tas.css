@@ -33,6 +33,7 @@ div.sectiontas{
     font-size: 1.3rem;
     width: 98%;
     padding-bottom: 2px;
+    box-sizing: border-box;
     /*float: left;*/
 }
 div.contentas div:last-child {
@@ -173,8 +174,10 @@ select{
 	background-color: #2722AC;
 }
 textarea{
-	max-width: 100%;
-	height: 6.7rem;
+	height: 9rem;
+    color: #000;
+    width: 100%;
+    resize: none;
 }
 p{
     margin: 0;
@@ -185,13 +188,12 @@ p{
     background-color: hsl(0, 100%, 75%);
     color: #fff;
 }
-.pvacio, .pinex{
+.pvacio, .pinex, .prep{
     color: hsl(0, 100%, 50%);
 }
 .corto , .largo{
     box-shadow: 0 0 1px 2px hsl(28, 100%, 50%);
     background-color: hsl(28, 100%, 75%);
-    color: #fff;
 }
 .pcorto, .plargo {
     color: hsl(28, 100%, 50%);
@@ -206,6 +208,7 @@ p.pstatus{
     font-size: 1.2rem;
     font-weight: bold;
     display: none;
+    float: none;
 }
 #divtelefono2{
 }
@@ -217,4 +220,7 @@ p.pstatus{
 }
 #ok-tas{
     width: 100%;
+}
+#zonablabla{
+    float: no;
 }
