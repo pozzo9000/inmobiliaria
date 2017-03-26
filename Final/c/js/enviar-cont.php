@@ -7,7 +7,7 @@
 	$mail = $_POST["correo"];
 	$urgen = $_POST["urg"];
 	$mensajer = $_POST["mensaje"];
-	$correoaenviar = "Nombre y apellido: ". $name." ".$lastName."\nTelefono: ".$tel." o ".$telSec."\nCorreo: ".$mail." o ".$mailSec."\nTipo de propiedad: ".$tipePropi."\nDirección: ".$street." (".$zone.") ".$address.", piso: ".$floor."º ".$side." (".$aptNapt.")\n".$mensajer;
-	$asunto = "Contacto ".$urgen;
+	$correoaenviar = "Nombre y apellido: ". $name." ".$lastName."\nTelefono: ".$tel."\nCorreo: ".$mail."\n".$mensajer;
+	$asunto = "Contacto".$urgen;
 	mail($destinatari, $asunto, $correoaenviar, $header);
 ?>

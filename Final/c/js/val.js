@@ -4,10 +4,10 @@ function iniciar(){
 	$("#apellido").blur('keyup', function(){primerNivel.funcApellido();});
 	$("#tel").blur('keyup', function(){primerNivel.funcTelefono();});
 	$("#mail").blur('keyup', function(){primerNivel.funcMail();});
-	$("#texto").blur('keyup', function(){primerNivel.funcText();});
+	$("#texto").on('keyup', function(){primerNivel.funcText();});
 	$("#urgencia").click(function(){
 		if ($("#urgencia").is(":checked")) {
-			capture.inUrg = "¡URGENTE!";
+			capture.inUrg = " ¡URGENTE!";
 			alert("Meurge");
 		} else {
 			capture.inUrg = "";
@@ -298,7 +298,7 @@ function confirmar() {
 			url:"js/enviar-cont.php",
 			data: {nombre:capture.inNombre,apellido:capture.inApellido,telefono:capture.inTelefono,correo:capture.inMail,mensaje:capture.inText,urg:capture.inUrg},
 			success:function(){
-				alert("Enviando")
+				alert("Enviando");
 			}
 		});
 	} else {

@@ -519,7 +519,8 @@ var validar = {
 		capturar.ventalquiCapture();
 		console.log(capturar.ventAlqui);
 		if (capturar.ventAlqui === "Venta" ||  capturar.ventAlqui === "Alquiler") {
-			$("#pvenalq").empty();
+			$("#pvenalq").removeClass("nselect");
+			$("#pvenalq").empty().hide();
 			this.statusVenalqqu = 1988
 			console.log(this.statusVenalqqu)
 		} else {
@@ -642,7 +643,8 @@ var validar = {
 		if (capturar.selector === "Departamento"  || capturar.selector === "Departamento tipo casa" || capturar.selector === "Oficina") {
 			if (capturar.aptoProf === "Apto profesional" ||  capturar.aptoProf === "No apto profesional") {
 				this.statusAptitud = 1988;
-				$("#papt").empty();
+				$("#papt").removeClass("nselect");
+				$("#papt").empty().hide();
 				console.log(this.statusAptitud)
 			} else {
 				$("#papt").addClass("nselect");
@@ -650,6 +652,7 @@ var validar = {
 		}
 		} else {
 			capturar.lado = "---";
+			$("#papt").removeClass("nselect");
 			this.statusAptitud = 1988;
 			$("#uubicacion").empty();
 		}
@@ -685,20 +688,6 @@ var SegundoNivel = {
 };
 // -----------------------------------------------------------------------------------------------------------
 function checkear() {
-	alert("Nombre: "+validar.statusNombre);
-	alert("Apellido: "+validar.statusApellido);
-	alert("Tel: "+validar.statusTelefono);
-	alert("Tel2: "+validar.statusTelefonoDos);
-	alert("mail: "+validar.statusMail);
-	alert("Mail2: "+validar.statusMailDos);
-	alert("Ventalq: "+validar.statusVenalqqu);
-	alert("Zona: "+validar.statusZona);
-	alert("Calle: "+validar.statusCalle);
-	alert("Altura: "+validar.statusAltura);
-	alert("Piso: "+validar.statusPiso);
-	alert("LAdo: "+validar.statusLado);
-	alert("Apt: "+validar.statusAptitud);
-	alert("Text: "+validar.statusTexto);
 	$("#correct").slideUp(500);
 	$("#incorrect").slideUp(500);
 	SegundoNivel.funcSegundoNivel();
