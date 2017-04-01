@@ -292,17 +292,29 @@ function confirmar() {
 	console.log(SegundoNivel.valorSegundoNivel);
 	SegundoNivel.funcSegundoNivel();
 	console.log(SegundoNivel.valorSegundoNivel);
-	if (SegundoNivel.valorSegundoNivel === "true") {
-		$.ajax({
+	$("#correct").slideUp(500);
+	$("#incorrect").slideUp(500);
+	$("#formulario-contacto").slideUp(500, function(){
+		$("#correct").slideUp(500);
+		$("#incorrect").slideUp(500);
+		$("#cargando-tas").show().fadeIn(100);
+		if (SegundoNivel.valorSegundoNivel === "true") {
+			$.ajax({
 			type:"post",
 			url:"js/enviar-cont.php",
 			data: {nombre:capture.inNombre,apellido:capture.inApellido,telefono:capture.inTelefono,correo:capture.inMail,mensaje:capture.inText,urg:capture.inUrg},
 			success:function(){
-				alert("Enviando");
+				$("#cargando-tas").hide();
+				$("#correct").slideDown(500)
 			}
 		});
-	} else {
-		alert("Completá")
-	};
-	return false
+		} else if(SegundoNivel.valorSegundoNivel === "false") {
+			$("#cargando-tas").hide();
+			$("#incorrect").slideDown(500, function(){
+				$("#formulario-contacto").delay(300).slideDown(500);
+			});
+		}
+	});
+	return false;
+		
 }

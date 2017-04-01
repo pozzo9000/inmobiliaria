@@ -1,6 +1,6 @@
 ﻿<?php
 	$header .= "Content-Type: text/plain; charset=UTF-8";
-	$destinatari  = "juanmpozzo@outlook.com";
+	$destinatari  = "back.on.board@outlook.com";
 	$name = $_POST["nombre"];
 	$lastName = $_POST["apellido"];
 	$tel = $_POST["telefono"];
