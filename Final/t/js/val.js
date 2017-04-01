@@ -17,17 +17,6 @@ function iniciar(){
 		$("#datzoncalnum").slideDown(500);
 		validar.valVenAlqu()
 	});
-	$("#apell").on('keyup', function (){validar.valApellido()});
-	$("#nomb").on('keyup', function (){validar.valNombre()});
-	$("#tel").on('keyup', function (){validar.valTelefono()});
-	$("#teldos").on('keyup', function (){validar.valTelefonoDos()});
-	$("#correo").on('keyup', function (){validar.valMail()});
-	$("#correodos").on('keyup', function (){validar.valMailDos()});
-	$("#zona").on('keyup', function (){validar.valZona()});
-	$("#calle").on('keyup', function(){validar.valCalle()});
-	$("#numero").on('keyup', function() {validar.valAltura()});
-	$("#piso").on('keyup', function(){validar.valPiso()});
-	$("#lado").on('keyup', function(){validar.valLado()});
 	$("#texto-mensaje").on('keyup', function(){validar.valMensaje()});
 
 
