@@ -1,0 +1,37 @@
+.mensaje-tasacion{
+	width:69%;
+	background-color: rgba(255, 255, 255, 0.41);
+	border:2px solid rgba(0, 18, 30, 0.78);
+	text-align: center;
+	margin: auto;
+	display: none;
+
+}
+
+#boton-mensaje-tasacion{
+	display: table;
+	transition: 0.5s;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 15px;
+	background-color: #F97070;
+	padding: 2px;
+	transform: scale(1);
+	 cursor: pointer;
+}
+
+#boton-mensaje-tasacion:hover{
+	display: table;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 15px;
+	background-color: #F97070;
+	padding: 2px;
+	transform: scale(1.10);
+
+}
+a{text-decoration:none; color:black;}
+#boton-mensaje-tasacion p{
+		margin:4px;
+		font-size: 19px;
+}

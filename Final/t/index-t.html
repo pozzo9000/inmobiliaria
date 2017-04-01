@@ -27,124 +27,122 @@
 			</nav>
 			<div class="linea"></div>
 		</header>
-       
-		<section>
-            <div id="ok-tas">
-                <link rel="stylesheet" type="text/css" href="css/carteles.css">
+    <div id="ok-tas">
+        <link rel="stylesheet" type="text/css" href="css/carteles.css">
 
 
-                <div id="correct" class="mensaje-tasacion">
-                    <h1>Su tasación se ha enviado correctamente.</h1>
-                    <div id="boton-mensaje-tasacion"><a href="../index.html"><p>Volver</p></a></div>
-                </div>
-                <div id="incorrect" class="mensaje-tasacion">
-                    <h1>Ha ocurrido un error al enviar su tasación.</h1>
-                    <h1>Por favor, inténtelo nuevamente.</h1>
-                </div>
+        <div id="correct" class="mensaje-tasacion">
+            <h1>Su tasación se ha enviado correctamente.</h1>
+            <div id="boton-mensaje-tasacion"><a href="../index.html"><p>Volver</p></a></div>
+        </div>
+        <div id="incorrect" class="mensaje-tasacion">
+            <h1>Ha ocurrido un error al enviar su tasación.</h1>
+            <h1>Por favor, inténtelo nuevamente.</h1>
+        </div>
+    </div>                        
+		<div id="formulario-tas">
+      <form method="post" id="form">
+        <div class="cinc">
+          <h1>Datos Personales</h1>
+          <div class="contentas">
+            <div class="sectiontas sectiontas-1" id="divnombre">
+                <input class="inputcl" type="text" id="nomb" placeholder="Nombre" onblur="" autocomplete="off">
+                <p class="pstatus" id="pnombre"></p>
             </div>
-			<div id="formulario-tas">
-                <form method="post" id="form">
-    			    <div class="cinc">
-                       	<h1>Datos Personales</h1>
-                        <div class="contentas">
-                            <div class="sectiontas sectiontas-1" id="divnombre">
-                                <input class="inputcl" type="text" id="nomb" placeholder="Nombre" onblur="" autocomplete="off">
-                                <p class="pstatus" id="pnombre"></p>
-                            </div>
-                            <div class="sectiontas sectiontas-1" id="divapellido">
+            <div class="sectiontas sectiontas-1" id="divapellido">
 
-                                <input autocomplete="off" class="inputcl" type="text" id="apell" placeholder="Apellido">
-                                <p class="pstatus" id="papellido">Hola soy un lindo parrafito</p>
-                            </div>
-                            <div class="sectiontas sectiontas-1" id="divtelefono">
-                                <input autocomplete="off" class="inputcl" type="text" id="tel" placeholder="Teléfono">
-                                <p class="pstatus" id="ptelefono">Hola soy un lindo parrafito</p>
-                            </div>
-                            <div class="sectiontas sectiontas-1" id="divtelefonodos">
-                                <input autocomplete="off" class="inputcl" type="text" id="teldos" placeholder="Teléfono 2 (opcional)" >
-                                <p class="pstatus" id="ptelefono2">Hola soy un lindo parrafito</p>
-                            </div>
-                            <div class="sectiontas sectiontas-1" id="divmail">
-                                <input autocomplete="off" class="inputcl" type="text" id="correo" placeholder="Mail">
-                                <p class="pstatus" id="pmail">Hola soy un lindo parrafito</p>
-                            </div>
-                            <div class="sectiontas sectiontas-1" id="divmail2">
-                                <input autocomplete="off" class="inputcl" type="text" id="correodos" placeholder="Mail 2 (opcional)" >
-                                <p class="pstatus" id="pmail2">Hola soy un lindo parrafito</p>
-                            </div>
-                        </div>
+                <input autocomplete="off" class="inputcl" type="text" id="apell" placeholder="Apellido">
+                <p class="pstatus" id="papellido">Hola soy un lindo parrafito</p>
+            </div>
+            <div class="sectiontas sectiontas-1" id="divtelefono">
+                <input autocomplete="off" class="inputcl" type="text" id="tel" placeholder="Teléfono">
+                <p class="pstatus" id="ptelefono">Hola soy un lindo parrafito</p>
+            </div>
+            <div class="sectiontas sectiontas-1" id="divtelefonodos">
+                <input autocomplete="off" class="inputcl" type="text" id="teldos" placeholder="Teléfono 2 (opcional)" >
+                <p class="pstatus" id="ptelefono2">Hola soy un lindo parrafito</p>
+            </div>
+            <div class="sectiontas sectiontas-1" id="divmail">
+                <input autocomplete="off" class="inputcl" type="text" id="correo" placeholder="Mail">
+                <p class="pstatus" id="pmail">Hola soy un lindo parrafito</p>
+            </div>
+            <div class="sectiontas sectiontas-1" id="divmail2">
+                <input autocomplete="off" class="inputcl" type="text" id="correodos" placeholder="Mail 2 (opcional)" >
+                <p class="pstatus" id="pmail2">Hola soy un lindo parrafito</p>
+            </div>
+          </div>
+        </div>
+        <div class="cinc">
+        <h1>Datos de la propiedad</h1>
+          <div class="contentas">
+              <div class="sectiontas">
+                  <div id="select">
+                      <select id="selector">
+                          <option value="Departamento" id="dep">Departamento</option>
+                          <option value="Casa" id="cas">Casa</option>
+                          <option value="Departamento tipo casa" id="deptipcas">Departamento tipo casa</option>
+                          <option value="Quinta" id="quin">Quinta</option>
+                          <option value="Country" id="count">Country</option>
+                          <option value="Terreno" id="terr">Terreno</option>
+                          <option value="Oficina" id="Ofic">Oficina</option>
+                          <option value="Cochera" id="cocher">Cochera</option>
+                          <option value="Local" id="loc">Local</option>
+                          <option value="Fondo de comercio" id="fdc">Fondo de comercio</option>
+                          <option value="Galpón" id="gal">Galpón</option>
+                          <option value="Hotel" id="hot">Hotel</option>
+                          <option value="Campo" id="canp">Campo</option>
+                          <option value="Isla" id="isl">Isla</option>
+                          <option value="Otro tipo" id="any">Otros</option>
+                      </select>
+                  </div>
+                  <div id="divvenalq">
+                      <div id="venalq">
+                          <input type="radio" name="ventalq" value="Venta" id="ventar" class="inravenal">
+                          <label for="ventar" id="vent">Venta</label>
+                          <input type="radio" name="ventalq" value="Alquiler" id="alquilerr" class="inravenal">
+                          <label for="alquilerr" id="alq">Alquiler</label>
+                      </div>
+                      <p class="pstatus" id="pvenalq">Seleccione una opción</p>
+                  </div>
+              </div>
+              <div class="sectiontas" id="datzoncalnum">
+                <div id="zonablabla">
+                	<div id="divzona">
+                        <input type="text" id="zona" placeholder="Zona">    
                     </div>
-                    <div class="cinc">
-                    	<h1>Datos de la propiedad</h1>
-                        <div class="contentas">
-                            <div class="sectiontas">
-                                <div id="select">
-                                    <select id="selector">
-                                        <option value="Departamento" id="dep">Departamento</option>
-                                        <option value="Casa" id="cas">Casa</option>
-                                        <option value="Departamento tipo casa" id="deptipcas">Departamento tipo casa</option>
-                                        <option value="Quinta" id="quin">Quinta</option>
-                                        <option value="Country" id="count">Country</option>
-                                        <option value="Terreno" id="terr">Terreno</option>
-                                        <option value="Oficina" id="Ofic">Oficina</option>
-                                        <option value="Cochera" id="cocher">Cochera</option>
-                                        <option value="Local" id="loc">Local</option>
-                                        <option value="Fondo de comercio" id="fdc">Fondo de comercio</option>
-                                        <option value="Galpón" id="gal">Galpón</option>
-                                        <option value="Hotel" id="hot">Hotel</option>
-                                        <option value="Campo" id="canp">Campo</option>
-                                        <option value="Isla" id="isl">Isla</option>
-                                        <option value="Otro tipo" id="any">Otros</option>
-                                    </select>
-                                </div>
-                                <div id="divvenalq">
-                                    <div id="venalq">
-                                        <input type="radio" name="ventalq" value="Venta" id="ventar" class="inravenal">
-                                        <label for="ventar" id="vent">Venta</label>
-                                        <input type="radio" name="ventalq" value="Alquiler" id="alquilerr" class="inravenal">
-                                        <label for="alquilerr" id="alq">Alquiler</label>
-                                    </div>
-                                    <p class="pstatus" id="pvenalq">Seleccione una opción</p>
-                                </div>
-                            </div>
-                            <div class="sectiontas" id="datzoncalnum">
-                              <div id="zonablabla">
-                              	<div id="divzona">
-                                      <input type="text" id="zona" placeholder="Zona">    
-                                  </div>
-                              	<div id="divcalle">
-                                      <input type="text" id="calle" placeholder="Calle">
-                                  </div>
-                              	<div id="divaltura">
-                                      <input type="text" id="numero" placeholder="Altura">
-                                  </div>
-                              	<div id="pisolado">
-                              		<div id="divpiso">
-                                          <input type="text" id="piso" placeholder="Piso">
-                                      </div>
-                              		<div id="divlado">
-                                          <input type="text" id="lado" placeholder="Lado">
-                                      </div>
-                              	</div>
-                              </div>
-                                <p class="pstatus" id="uubicacion">Hola soy un lindo parrafito</p>
-                                <div class="sectiontas" id="aptitud">
-                            	<input type="radio" name="aptitud" value="Apto profesional" id="apt" class="">
-                                    <label for="apt" id="vent">Apto profesional</label>
-                                    <input type="radio" name="aptitud" value="No apto profesional" id="napt" class="">
-                                    <label for="napt">No apto profesional</label>
-                                    <p class="pstatus" id="papt">Hola soy un lindo parrafito</p>
-      						    </div>
-                            </div>
-                            <div class="sectiontas">
-                                <textarea name="mensaje" placeholder="Mensaje" id="texto-mensaje"></textarea>
-                                <p class="pstatus" id="ptext">Hola soy un lindo parrafito</p>
-                            </div>
-                            <div class="sectiontas">
-                                <button type="button" value="ENVIAR" id="enviarr">Enviar</button>
-                            </div>
-                        </div>
+                	<div id="divcalle">
+                        <input type="text" id="calle" placeholder="Calle">
                     </div>
+                	<div id="divaltura">
+                        <input type="text" id="numero" placeholder="Altura">
+                    </div>
+                	<div id="pisolado">
+                		<div id="divpiso">
+                            <input type="text" id="piso" placeholder="Piso">
+                        </div>
+                		<div id="divlado">
+                            <input type="text" id="lado" placeholder="Lado">
+                        </div>
+                	</div>
+                </div>
+                  <p class="pstatus" id="uubicacion">Hola soy un lindo parrafito</p>
+                  <div class="sectiontas" id="aptitud">
+              	<input type="radio" name="aptitud" value="Apto profesional" id="apt" class="">
+                      <label for="apt" id="vent">Apto profesional</label>
+                      <input type="radio" name="aptitud" value="No apto profesional" id="napt" class="">
+                      <label for="napt">No apto profesional</label>
+                      <p class="pstatus" id="papt">Hola soy un lindo parrafito</p>
+          </div>
+              </div>
+              <div class="sectiontas">
+                  <textarea name="mensaje" placeholder="Mensaje" id="texto-mensaje"></textarea>
+                  <p class="pstatus" id="ptext">Hola soy un lindo parrafito</p>
+              </div>
+              <div class="sectiontas">
+                  <button type="button" value="ENVIAR" id="enviarr">Enviar</button>
+              </div>
+          </div>
+        </div>
     			</form>
             </div>
 		</section>
