@@ -21,3 +21,10 @@
     padding: 15px;
     background-color: cadetblue;
 }
+#menu ul li:not(#menu-log):hover{
+    float:  left;
+    text-align: center;
+    padding: 15px;
+    background-color: cadetblue;
+    color: red;
+}
